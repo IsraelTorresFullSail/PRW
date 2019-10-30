@@ -1,0 +1,22 @@
+{
+  "name": "prw",
+  "version": "1.0.0",
+  "description": "Shopping list assignment",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IsraelTorresFullSail/PRW.git"
+  },
+  "author": "Israel Torres",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IsraelTorresFullSail/PRW/issues"
+  },
+  "homepage": "https://github.com/IsraelTorresFullSail/PRW#readme",
+  "dependencies": {
+    "noty": "^3.2.0-beta"
+  }
+}

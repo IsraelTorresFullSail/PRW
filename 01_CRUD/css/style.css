@@ -1,0 +1,135 @@
+html {
+    font-size: 16px;
+}
+
+body {
+    font-family: "Ubuntu", sans-serif;
+    line-height: 1.3em;
+    font-weight: 400;
+    font-style: normal;
+    margin: 0;
+    padding: 0 30px;
+    background-color: #ECEDF2;
+    color: #010340;
+    transition: all ease .3s; 
+}
+
+h1, p {
+    line-height: 1.3em;
+}
+
+.container-app {
+    margin: 100px auto;
+    padding: 0 50px;
+    width: 30%;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 10px 10px 20px 0px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+form {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+input {
+    width: 100%;
+    font-size: 1em;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #A9A9BA;
+    margin: 20px 0;
+}
+
+.btn-add {
+    margin: 10px 0;
+    width: 100%;
+    font-size: 1em;
+    background-color: #2D3CD0;
+    color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 6px 6px 12px 0px rgba(0, 0, 0, 0.16);
+}
+
+.btn-delete {
+    font-size: 1em;
+    background-color: #B40A09;
+    color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 6px 6px 12px 0px rgba(0, 0, 0, 0.16);
+}
+
+.groceries {
+    padding: 5px 10px 1px 10px;
+    border-radius: 10px;
+    background-color: #ECEDF2;
+}
+
+ul {
+    list-style-type: none;
+}
+
+li {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1em;
+    background-color: #fff;
+    margin: 5px 0 10px 0;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 6px 6px 12px 0px rgba(0, 0, 0, 0.16);
+}
+
+li label {
+    text-transform: capitalize;
+}
+
+i {
+    margin-right: 10px;
+}
+
+li i {
+    color: #5A3E46;
+}
+
+@media only screen and (max-width: 1400px) {
+    .container-app {
+        width: 40%;
+    }
+}
+
+@media only screen and (max-width: 990px) {
+    .container-app {
+        width: 60%;
+    }
+}
+
+@media only screen and (max-width: 780px) {
+    .container-app {
+        width: 70%;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .container-app {
+        width: 80%;
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    .container-app {
+        width: 100%;
+    }
+}
