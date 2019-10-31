@@ -19,7 +19,7 @@ h1, p {
 }
 
 .container-app {
-    margin: 100px auto;
+    margin: 150px auto;
     padding: 0 50px;
     width: 30%;
     padding: 30px;
@@ -66,6 +66,7 @@ input {
 }
 
 .groceries {
+    min-height: 50px;
     padding: 5px 10px 1px 10px;
     border-radius: 10px;
     background-color: #ECEDF2;
@@ -86,6 +87,10 @@ li {
     padding: 10px;
     border-radius: 10px;
     box-shadow: 6px 6px 12px 0px rgba(0, 0, 0, 0.16);
+}
+
+.loading {
+    color: #B40A09;
 }
 
 li label {
@@ -132,4 +137,30 @@ li i {
     .container-app {
         width: 100%;
     }
+}
+
+/* --------- Modal Styles --------- */
+.noty_layout {
+    text-align: center;
+    border-radius: 10px !important;
+}
+.btn-success {
+    margin-right: 5px;
+    padding: 5px;
+    width: 60px;
+    font-weight: 600;
+    color: #010340;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 6px 6px 12px 0px rgba(0, 0, 0, 0.16);
+}
+
+.btn-error {
+    padding: 5px;
+    width: 60px;
+    font-weight: 600;
+    color: #010340;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 6px 6px 12px 0px rgba(0, 0, 0, 0.16);
 }
