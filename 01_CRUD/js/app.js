@@ -84,6 +84,7 @@ deleteItem = (e) => {
                         }, {id: 'button1', 'data-status': 'ok'}),
                     
                         Noty.button('NO', 'btn btn-error', function () {
+                            Noty.closeAll();
                             return false;
                         })
                         ]
