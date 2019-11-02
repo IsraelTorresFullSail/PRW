@@ -34,19 +34,19 @@ const user = {
 export const Welcome = props => {         
     return (
       <section className="App">
-        <h2>Welcome, {fullName(user)}</h2>
+        <h3>Welcome, {fullName(user)}</h3>
       </section>
     ) 
 } 
 
 // ================================= MyProps Component ================================= //
-// Using Export Ex
+// Export using Export Ex
 export class MyProps extends Component { 
   render() {          
      return (
       <section className="App">
-        <h4>Class name: {this.props.propsClassName}</h4>
-        <h4>Assigment: {this.props.propsAssignmentName}</h4>
+        <p><strong>Class name: </strong>{this.props.propsClassName}</p>
+        <p><strong>Assigment: </strong>{this.props.propsAssignmentName}</p>
       </section>
      ) 
   }
