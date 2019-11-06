@@ -4,10 +4,13 @@ import './App.css';
 // ================================= Clock Component ================================= //
 // Export using Class Ex
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {date: new Date()}
-  }
+  //Old syntax
+  // constructor(props) {
+  //   super(props);
+  //   this.
+    
+    state = {date: new Date()}
+  //}
 
   render() {
     return (
@@ -43,12 +46,12 @@ export const Welcome = props => {
 // Export using Export Ex
 export class MyProps extends Component { 
   render() {          
-     return (
-      <section className="App">
-        <p><strong>Class name: </strong>{this.props.propsClassName}</p>
-        <p><strong>Assigment: </strong>{this.props.propsAssignmentName}</p>
-      </section>
-     ) 
+      return (
+        <section className="App">
+          <p><strong>Class name: </strong>{this.props.propsClassName}</p>
+          <p><strong>Assigment: </strong>{this.props.propsAssignmentName}</p>
+        </section>
+      ) 
   }
 } 
 
