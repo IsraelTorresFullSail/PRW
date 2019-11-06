@@ -1,11 +1,10 @@
 import React from 'react'
 import './Footer.css'
-import { FaHome } from 'react-icons/fa'
 
 const Footer = () => {
     return (
         <footer style={styles.footer}>
-            <FaHome /> © 2019 CS. All rights reserved.
+            Israel Torres © 2019 CS. All rights reserved.
         </footer>
     )
 }
@@ -22,6 +21,7 @@ const styles = {
         flexDirection: 'row',
         justifyContent: 'center',
         padding: '1%',
-        fontSize: '0.65em'
+        fontSize: '0.8em',
+        color: '#040B71'
     }
 }

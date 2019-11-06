@@ -1,3 +1,6 @@
-.prtyBtn {
-    background-color: #fff;
+.BtnAdd {
+    width: 30%;
+    background-color: #31A64F !important;
+    color: #ffffff !important;
+    border: none !important;
 }

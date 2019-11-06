@@ -1,14 +1,14 @@
 import React from 'react'
 import './Nav.css'
-import MyBtn from '../buttons/MyBtn'
+import ResponsiveModal from '../modal/ResponsiveModal'
+
+import profile from '../../images/profile-placeholder.png'
 
 const Nav = () => {
     return (
         <nav style={styles.container}>
-            <MyBtn btnText='Home' />
-            <MyBtn btnText='News Feed' />
-            <MyBtn btnText='Messages' />
-            <MyBtn btnText='Watch' />
+            <ResponsiveModal />
+            <img src={profile} alt="Profile" style={styles.profile} />
         </nav>
     )
 }
@@ -21,5 +21,10 @@ const styles = {
         justifyContent: 'flex-end',
         flexDirection: 'row',
         alignItems: 'center'
+    },
+    profile: {
+        width: '50px',
+        marginLeft: '20px',
+        borderRadius: '50px'
     }
 }
