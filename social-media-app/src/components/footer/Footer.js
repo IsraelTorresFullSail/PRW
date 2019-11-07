@@ -22,6 +22,9 @@ const styles = {
         justifyContent: 'center',
         padding: '1%',
         fontSize: '0.8em',
-        color: '#040B71'
+        color: '#040B71',
+        backgroundColor: '#ffffff',
+        boxShadow: '0px 1px 20px 0px rgba(4,11,113,0.16)',
+        zIndex: '9999'
     }
 }

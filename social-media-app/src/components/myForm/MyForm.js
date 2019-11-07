@@ -5,12 +5,12 @@ import MyBtn, {BtnAdd} from '../buttons/MyBtn'
 const MyForm = props => {
     return (
         <form style={styles.myForm} onSubmit={props.addName}>
-            <input style={styles.input} placeholder="First Name" />
-            <input style={styles.input} placeholder="Last Name" />
-            <input style={styles.input} placeholder="Username" />
-            <input style={styles.input} placeholder="Address" />
-            <input style={styles.input} placeholder="City" />
-            <input style={styles.input} placeholder="Zip" />
+            <input style={styles.input} type="text" name="firstname" id="firstname" placeholder="First Name" required />
+            <input style={styles.input} type="text" name="lastname" id="lastname" placeholder="Last Name" required />
+            <input style={styles.input} type="text" name="username" id="username" placeholder="Username" required />
+            <input style={styles.input} type="text" name="address" id="address" placeholder="Address" required />
+            <input style={styles.input} type="text" name="city" id="city" placeholder="City" required />
+            <input style={styles.input} type="number" name="zip" id="zip" placeholder="Zip" required />
             <div style={styles.btnDiv}>
                 <BtnAdd btnText="Add" />
             </div>
@@ -33,7 +33,6 @@ const styles = {
         color: '#040B71',
         borderRadius: '5px',
         border: '1px solid rgba(4,11,113,0.3)'
-
     },
     input: {
         backgroundColor: 'rgba(4,11,113,0.1)',

@@ -1,7 +1,6 @@
 import React from 'react'
 import Modal from 'react-responsive-modal'
 import './ResponsiveModal.css'
-import MyBtn from '../buttons/MyBtn'
 import MyForm from '../myForm/MyForm'
  
 class ResponsiveModal extends React.Component {

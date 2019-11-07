@@ -8,10 +8,10 @@ const Header = props => {
     return (
         <header className='Header' style={styles.header}>
             <div style={styles.container}>
-                <p>
-                    <img src={logo} alt="Logo" />
-                </p>
-                <h1 style={styles.h1}>{props.pgTitle}</h1>
+                <div style={styles.logoWrapper}>
+                    <img src={logo} alt="Logo" style={styles.img} />
+                    <h1 style={styles.h1}>{props.pgTitle}</h1>
+                </div>
                 <Nav />
             </div>
         </header>
@@ -27,6 +27,8 @@ const styles = {
         marginBottom: '0',
         marginRight: 'auto',
         marginLeft: 'auto',
+        paddingTop: '10px',
+        paddingBottom: '10px',
         paddingRight: '50px',
         paddingLeft: '50px',
         display: 'flex',
@@ -34,8 +36,20 @@ const styles = {
         justifyContent: 'space-between',
         alignItems: 'center'
     },
+    logoWrapper: {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center'
+    },
     h1: {
         fontSize: '1.25em',
-        textAlign: 'center'
+        textAlign: 'center',
+        color: '#040B71',
+        textTransform: 'uppercase'
+    },
+    img: {
+        width: '60px',
+        marginRight: '10px'
     }
 }

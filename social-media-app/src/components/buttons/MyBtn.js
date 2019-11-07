@@ -13,13 +13,18 @@ export default MyBtn
 export const BtnAdd = props => {
     return (
         <button className="BtnAdd" style={styles.myBtn} onClick={props.onClick}>
-            {props.btnText}
+            {props.btnText} {props.icon}
         </button>
     )
 }
 
 const styles = {
     myBtn: {
+        position: 'relative',
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
         paddingTop: '10px',
         paddingBottom: '10px',
         paddingRight: '30px',
