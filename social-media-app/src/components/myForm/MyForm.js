@@ -1,6 +1,7 @@
 import React from 'react'
-import './MyForm.css'
+import './MyForm.css'                                      // eslint-disable-next-line
 import MyBtn, {BtnAdd} from '../buttons/MyBtn'
+import { IoIosAddCircle } from 'react-icons/io'
 
 const MyForm = props => {
     return (
@@ -12,7 +13,7 @@ const MyForm = props => {
             <input style={styles.input} type="text" name="city" id="city" placeholder="City" required />
             <input style={styles.input} type="number" name="zip" id="zip" placeholder="Zip" required />
             <div style={styles.btnDiv}>
-                <BtnAdd btnText="Add" />
+                <BtnAdd btnText="Add" icon={<IoIosAddCircle style={styles.ioIosAddCircle} />}></BtnAdd>
             </div>
         </form>
     )
@@ -50,5 +51,12 @@ const styles = {
         display: 'flex',
         justifyContent: 'center',
         width: '100%'
+    },
+    ioIosAddCircle: {
+        position: 'absolute',
+        top: '10px',
+        right: '15px',
+        width: '1.2em',
+        height: '1.2em'
     }
 }

@@ -1,17 +1,17 @@
 import React from 'react'
-import './postForm.css'
+import './postForm.css'                                   // eslint-disable-next-line
 import MyBtn, {BtnAdd} from '../buttons/MyBtn'
-import { FaPlus } from 'react-icons/fa'
+import { IoIosAddCircle } from 'react-icons/io'
 
 const PostForm = props => {
     return (
-        <form style={styles.postForm} onSubmit={props.createPost}>
-            <input style={styles.input} onChange={props.changeMeMan} type="text" name="title" id="title" placeholder="Title" required />
-            <textarea style={styles.input} onChange={props.changeMeManPost} type="text" name="post" id="post" placeholder="Create Post..." required />
+        <form name="postForm" style={styles.postForm} onSubmit={props.createPost}>
+            <input style={styles.input} onChange={props.changeMeMan} type="text" name="title" id="title" placeholder="Title" />
+            <textarea style={styles.input} onChange={props.changeMeManPost} type="text" name="post" id="post" placeholder="Create Post..." />
             <p>New Title: {props.myInput}</p>
             <p>New Post: {props.myInputPost}</p>
             <div style={styles.btnDiv}>
-                <BtnAdd btnText="Create" icon={<FaPlus style={styles.faPlus} />}></BtnAdd>
+                <BtnAdd btnText="Create" icon={<IoIosAddCircle style={styles.ioIosAddCircle} />}></BtnAdd>
             </div>
         </form>
     )
@@ -51,9 +51,11 @@ const styles = {
         justifyContent: 'center',
         width: '100%'
     },
-    faPlus: {
+    ioIosAddCircle: {
         position: 'absolute',
-        top: '11px',
-        right: '50px'
+        top: '10px',
+        right: '15px',
+        width: '1.2em',
+        height: '1.2em'
     }
 }

@@ -7,13 +7,13 @@ import { MdQuestionAnswer } from 'react-icons/md'
 import { MdVideoLibrary } from 'react-icons/md'
 
 const SideBar = () => {
-    return (
+    return (                                                  // Urls used as a placeholder to avoid warnings
         <div className='SideBar'>
-            <ul style={styles.ul}>
-                <li><FaHome style={styles.icon}/><a href="#" style={styles.a}>Home</a></li>
-                <li><IoIosPaper style={styles.icon}/><a href="#" style={styles.a}>News Feed</a></li>
-                <li><MdQuestionAnswer style={styles.icon}/><a href="#" style={styles.a}>Messages</a></li>
-                <li><MdVideoLibrary style={styles.icon}/><a href="#" style={styles.a}>Watch</a></li>
+            <ul style={styles.ul}>                                                                                
+                <li><FaHome style={styles.icon}/><a href="http://localhost:3000/" style={styles.a}>Home</a></li>                    
+                <li><IoIosPaper style={styles.icon}/><a href="http://localhost:3000/" style={styles.a}>News Feed</a></li>
+                <li><MdQuestionAnswer style={styles.icon}/><a href="http://localhost:3000/" style={styles.a}>Messages</a></li>
+                <li><MdVideoLibrary style={styles.icon}/><a href="http://localhost:3000/" style={styles.a}>Watch</a></li>
             </ul>
         </div>
     )

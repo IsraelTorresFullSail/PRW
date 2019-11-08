@@ -1,10 +1,13 @@
-import React from 'react'
+import React from 'react'                               // eslint-disable-next-line
+import MyBtn, {BtnDelete} from '../buttons/MyBtn'
+import { TiDelete } from 'react-icons/ti'
 
 const ListItem = props => {
     return (
         <div key={props.id} style={styles.list}>
             <h1 style={styles.h1}>{props.val.gTitle}</h1>
             <p>{props.val.gPost}</p>
+            <BtnDelete btnText="Delete" icon={<TiDelete style={styles.tiDelete} />} onClick={props.deleteMe}></BtnDelete>
         </div>
     )
 }
@@ -27,5 +30,12 @@ const styles = {
         fontSize: '1.25em',
         fontWeight: '800',
         marginBottom: '10px'
+    },
+    tiDelete: {
+        position: 'absolute',
+        top: '10px',
+        right: '15px',
+        width: '1.2em',
+        height: '1.2em'
     }
 }

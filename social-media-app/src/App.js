@@ -25,16 +25,38 @@ class App extends Component {
 
   createPost = e => {
     e.preventDefault()
-    this.state.gList.push({gTitle:this.state.myInput, gPost:this.state.myInputPost}) // TODO: use spread operator to do this
+
+    // Validate Form
+    if(this.state.myInput === '') {
+      alert('Please provide a Title!')
+      return false
+    }
+    if(this.state.myInputPost === '') {
+      alert('Please provide a Post!')
+      return false
+    }
+
+    // Spread Operator
+    this.setState({
+      gList: [...this.state.gList, {gTitle:this.state.myInput, gPost:this.state.myInputPost}]
+    })
+
+    // Clear Form and Data Binding fields
+    e.target.reset()                                // eslint-disable-next-line
+    this.state.myInput = ''                         // eslint-disable-next-line
+    this.state.myInputPost = ''
+
+  }
+
+  removePost = key => {
+    this.state.gList.splice(key, 1)
     this.setState({gList: this.state.gList})
-    // Clear Form
-    e.target.reset()
   }
 
   render() {
 
     let myList = this.state.gList.map((element, i) => {
-      return <ListItem key={i} val={element} />
+      return <ListItem key={i} val={element} deleteMe={() => this.removePost(i)} />
     })
 
     return (
