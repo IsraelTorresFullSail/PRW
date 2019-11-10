@@ -20,7 +20,7 @@ const styles = {
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'center',
-        padding: '1%',
+        padding: '15px',
         fontSize: '0.8em',
         color: '#040B71',
         backgroundColor: '#ffffff',

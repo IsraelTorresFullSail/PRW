@@ -22,7 +22,7 @@ class ResponsiveModal extends React.Component {
     const { open } = this.state;
     return (
       <div>
-        <MyBtn btnText="Add Social Profile" icon={<FaUserCog style={styles.faUserCog} />} onClick={this.onOpenModal} />
+        <MyBtn btnText="Profile" icon={<FaUserCog style={styles.faUserCog} />} onClick={this.onOpenModal} />
         <Modal open={open} onClose={this.onCloseModal} center>
             <h1 style={styles.h1}>Social Profile</h1>
             <MyForm />

@@ -7,3 +7,29 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: #fcfbfc;
 }
+
+/* ------------- Search Bar Style --------------- */
+.css-qr0wyf {
+  border: 1px solid #F6F7FB !important;
+  border-radius: 5px !important;
+  transition: all ease .3s;
+}
+
+.css-qdb8ag {
+  color: rgba(4,11,113,0.5) !important;
+}
+
+.css-1rclvoe, .css-10dm40d, .css-kt8uf2 {
+  color: #404FAB !important;
+}
+
+@media only screen and (max-width: 1024px) {
+  .css-qr0wyf {
+      width: 40% !important;
+  }
+}
+@media only screen and (max-width: 475px) {
+  .css-qr0wyf {
+      display: none !important;
+  }
+}

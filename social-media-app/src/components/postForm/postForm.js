@@ -31,8 +31,8 @@ const styles = {
         backgroundColor: '#ffffff',
         color: '#040B71',
         borderRadius: '5px',
-        boxShadow: '0px 1px 20px 0px rgba(4,11,113,0.16)'
-
+        boxShadow: '0px 1px 20px 0px rgba(4,11,113,0.16)',
+        transition: 'all ease .3s'
     },
     input: {
         backgroundColor: 'rgba(4,11,113,0.1)',

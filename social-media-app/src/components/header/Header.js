@@ -1,6 +1,7 @@
 import React from 'react'
 import './Header.css'
 import Nav from '../nav/Nav'
+import SearchBar from 'search-bar-react'
 
 import logo from '../../images/logo.png'
 
@@ -12,6 +13,17 @@ const Header = props => {
                     <img src={logo} alt="Logo" style={styles.img} />
                     <h1 style={styles.h1}>{props.pgTitle}</h1>
                 </div>
+                <SearchBar
+                    mobile
+                    onChange={(text) => console.log(text)}
+                    onFocus={() => console.log('focused')}
+                    size='large'
+                    width='60%'
+                    autoFocus
+                    placeholder='Search...'
+                    onClear={() => console.log('closed')}
+                    value='Initial Value'
+                />
                 <Nav />
             </div>
         </header>
@@ -23,14 +35,10 @@ export default Header
 const styles = {
     container: {
         minHeight: '50px',
-        marginTop: '0',
-        marginBottom: '0',
-        marginRight: 'auto',
-        marginLeft: 'auto',
+        margin: '0 auto',
         paddingTop: '10px',
         paddingBottom: '10px',
-        paddingRight: '50px',
-        paddingLeft: '50px',
+        width: '100%',
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'space-between',
@@ -50,6 +58,7 @@ const styles = {
     },
     img: {
         width: '60px',
-        marginRight: '10px'
+        marginRight: '10px',
+        marginLeft: '30px'
     }
 }

@@ -25,6 +25,7 @@ const styles = {
     profile: {
         width: '50px',
         marginLeft: '20px',
+        marginRight: '30px',
         borderRadius: '50px'
     }
 }

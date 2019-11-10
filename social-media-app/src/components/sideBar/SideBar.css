@@ -7,4 +7,31 @@
     padding: 100px 20px 20px 20px;
     background-color: #ffffff;
     box-shadow: 1px 0px 20px 0px rgba(4,11,113,0.16);
+    transition: all ease .3s;
+}
+
+@media only screen and (max-width: 1024px) {
+    .SideBar {
+        width: 30px;
+        padding: 100px 15px 20px 20px;
+    }
+    ul {
+        padding: 0px;
+        text-align: center;
+    }
+    li {
+        margin-bottom: 15px;
+    }
+    a {
+        display: none;
+    }
+    li svg {
+        color: rgba(4,11,113,0.8) !important;
+    }
+}
+@media only screen and (max-width: 475px) {
+    .SideBar {
+        width: 20px;
+        padding: 100px 15px 20px 15px;
+    }
 }
