@@ -10,6 +10,7 @@ body {
 
 /* ------------- Search Bar Style --------------- */
 .css-qr0wyf {
+  width: 100% !important;
   border: 1px solid #F6F7FB !important;
   border-radius: 5px !important;
   transition: all ease .3s;
@@ -23,13 +24,4 @@ body {
   color: #404FAB !important;
 }
 
-@media only screen and (max-width: 1024px) {
-  .css-qr0wyf {
-      width: 40% !important;
-  }
-}
-@media only screen and (max-width: 475px) {
-  .css-qr0wyf {
-      display: none !important;
-  }
-}
+

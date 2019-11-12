@@ -6,13 +6,37 @@ import Ads from './components/adsSection/Ads'
 import PostForm from './components/postForm/postForm'
 import Footer from './components/footer/Footer'
 import ListItem from './components/listItem/listItem'
+import SearchList from './components/search/SearchList'
+import SearchInput from './components/search/SearchInput'
+
+function searchMe(search) {
+  return function(searchPostTitle){
+    return searchPostTitle.gTitle.toLowerCase().includes(search.toLowerCase()) || !search
+  }
+}
 
 class App extends Component {
   state = {
+    id: '',
     myInput: '',
     myInputPost: '',
+    gList: [],
+    search: ''
+  }
 
-    gList: []
+  searchPost = e => {
+    this.setState({search: e.target.value})
+  }
+
+  componentDidMount() {
+    let gList
+    if(gList = JSON.parse(localStorage.getItem('gList'))) {
+      gList = JSON.parse(localStorage.getItem('gList'))
+      this.setState({gList})
+    }
+    else {
+      alert('Nothing to store!')
+    }
   }
 
   changeMeMan = e => {
@@ -36,10 +60,13 @@ class App extends Component {
       return false
     }
 
-    // Spread Operator
-    this.setState({
-      gList: [...this.state.gList, {gTitle:this.state.myInput, gPost:this.state.myInputPost}]
-    })
+    let gList = [...this.state.gList]
+    let id = Math.random()
+    gList.push({gId:id, gTitle:this.state.myInput, gPost:this.state.myInputPost})
+    this.setState({gList})
+    localStorage.setItem('gList', JSON.stringify(gList))
+
+    e.target.datasetId = id
 
     // Clear Form and Data Binding fields
     e.target.reset()                                // eslint-disable-next-line
@@ -49,19 +76,35 @@ class App extends Component {
   }
 
   removePost = key => {
+    let gList = [...this.state.gList]
     this.state.gList.splice(key, 1)
     this.setState({gList: this.state.gList})
+    localStorage.setItem('gList', JSON.stringify(gList))
   }
 
   render() {
 
     let myList = this.state.gList.map((element, i) => {
-      return <ListItem key={i} val={element} deleteMe={() => this.removePost(i)} />
+      return <ListItem key={i} data-id={this.state.id} val={element} deleteMe={() => this.removePost(i)} />
+    })
+
+    const {search} = this.state
+    let mySearchList = this.state.gList.filter(searchMe(search)).map((key, post) =>{
+      return <SearchList
+              val={key}
+              key={post}
+              />
     })
 
     return (
       <div>
-        <Header pgTitle='Sellers network' />
+        <Header pgTitle='Sellers network'/>
+        <div className='SearchDiv' style={styles.container}>
+          <SearchInput searchPost={this.searchPost} />
+          <ul style={styles.ul}>
+            {mySearchList}
+          </ul>
+        </div>
         <SideBar />
         <Ads />
         <PostForm 
@@ -81,3 +124,19 @@ class App extends Component {
 }
 
 export default App
+
+const styles = {
+  container: {
+    width: '65%',
+    margin: '100px auto 0px auto',
+    padding: '20px',
+    backgroundColor: '#404FAB',
+    color: '#040B71',
+    borderRadius: '5px',
+    transition: 'all ease .3s'
+  },
+  ul: {
+    listStyleType: 'none',
+    color: '#ffffff'
+  }
+}

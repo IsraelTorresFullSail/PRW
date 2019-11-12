@@ -20,13 +20,13 @@ p {
 @media only screen and (max-width: 1024px) {
     form {
         width: 60% !important;
-        margin: 100px auto 0px auto !important;
+        margin: 20px auto 0px auto !important;
     }
 }
 
 @media only screen and (max-width: 475px) {
     form {
         width: 70% !important;
-        margin: 100px 12px 0px auto !important;
+        margin: 20px 12px 0px auto !important;
     }
 }

@@ -1,11 +1,10 @@
 import React from 'react'
 import './Header.css'
 import Nav from '../nav/Nav'
-import SearchBar from 'search-bar-react'
-
 import logo from '../../images/logo.png'
 
 const Header = props => {
+    
     return (
         <header className='Header' style={styles.header}>
             <div style={styles.container}>
@@ -13,17 +12,6 @@ const Header = props => {
                     <img src={logo} alt="Logo" style={styles.img} />
                     <h1 style={styles.h1}>{props.pgTitle}</h1>
                 </div>
-                <SearchBar
-                    mobile
-                    onChange={(text) => console.log(text)}
-                    onFocus={() => console.log('focused')}
-                    size='large'
-                    width='60%'
-                    autoFocus
-                    placeholder='Search...'
-                    onClear={() => console.log('closed')}
-                    value='Initial Value'
-                />
                 <Nav />
             </div>
         </header>
