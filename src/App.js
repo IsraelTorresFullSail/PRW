@@ -67,10 +67,8 @@ class App extends Component {
         <PostForm 
           changeMeMan={this.changeMeMan}
           myInput={this.state.myInput}
-
           changeMeManPost={this.changeMeManPost}
           myInputPost={this.state.myInputPost}
-
           createPost={this.createPost}
         />
         {myList}

@@ -4,8 +4,8 @@ import './Ads.css'
 const SideBar = () => {
     return (
         <div className='Ads'>
-            <div style={styles.adsCard}></div>
-            <div style={styles.adsCard}></div>
+            <div style={styles.adsCard}>Create ads</div>
+            <div style={styles.adsCard}>Create ads</div>
         </div>
     )
 }
