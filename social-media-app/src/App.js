@@ -6,17 +6,19 @@ import Ads from './components/adsSection/Ads'
 import PostForm from './components/postForm/postForm'
 import Footer from './components/footer/Footer'
 import ListItem from './components/listItem/listItem'
-//import SearchList from './components/search/SearchList'
 import SearchInput from './components/search/SearchInput'
+
+import Watch from './pages/Watch'
+import Messages from './pages/Messages'
 
 // React Router
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from 'react-router-dom'
 
+// Functions for search bar
 function searchMe(search) {
   return function(searchPostTitle){
     return searchPostTitle.gTitle.toLowerCase().includes(search.toLowerCase()) || !search
@@ -33,7 +35,7 @@ class App extends Component {
 
   // Function to get all posts from Local Storage
   componentDidMount() {
-    let gList
+    let gList                                                                               // eslint-disable-next-line
     if(gList = JSON.parse(localStorage.getItem('gList'))) {
       gList = JSON.parse(localStorage.getItem('gList'))
       this.setState({gList})
@@ -43,7 +45,7 @@ class App extends Component {
     }
   }
 
-  // Functions for search bar
+  // Functions to get the text typing on search bar
   searchPost = e => {
     console.log(e)
     this.setState({search: e})
@@ -111,18 +113,29 @@ class App extends Component {
           </div>
           <SideBar />
           <Ads />
-          <PostForm 
-            changeMeMan={this.changeMeMan}
-            myInput={this.state.myInput}
-
-            changeMeManPost={this.changeMeManPost}
-            myInputPost={this.state.myInputPost}
-
-            createPost={this.createPost}
-          />
-          <div style={styles.listWrapper}>
-            {myList}
-          </div>
+          
+            <Switch>
+              <Route exact path="/">
+                <PostForm 
+                  changeMeMan={this.changeMeMan}
+                  myInput={this.state.myInput}
+      
+                  changeMeManPost={this.changeMeManPost}
+                  myInputPost={this.state.myInputPost}
+      
+                  createPost={this.createPost}
+                />
+                <div style={styles.listWrapper}>
+                  {myList}
+                </div>
+              </Route>
+              <Route path="/Messages">
+                <Messages />
+              </Route>
+              <Route path="/Watch">
+                <Watch />
+              </Route>
+            </Switch>
           <Footer />
         </div>
       </Router>
