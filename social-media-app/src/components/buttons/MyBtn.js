@@ -43,6 +43,7 @@ const styles = {
         fontWeight: 'bold',
         cursor: 'pointer',
         borderRadius: '50px',
-        border: '1px solid rgba(4,11,113,0.3)'
+        border: '1px solid rgba(4,11,113,0.3)',
+        outline: 'none'
     }
 }

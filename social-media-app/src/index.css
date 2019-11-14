@@ -27,4 +27,9 @@ body {
   color: #404FAB !important;
 }
 
+/* ------------- Modal Style --------------- */
+.styles_closeButton__20ID4 {
+  outline: none !important;
+  cursor: pointer !important;
+}
 
