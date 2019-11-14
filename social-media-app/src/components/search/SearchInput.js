@@ -12,7 +12,6 @@ const SearchInput = props => {
             autoFocus
             placeholder='Search...'
             onClear={() => console.log('closed')}
-            //value='Initial Value'
         />
     )
 }

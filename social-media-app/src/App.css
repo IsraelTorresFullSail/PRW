@@ -4,27 +4,27 @@
 
 @media only screen and (max-width: 1800px) {
   .SearchDiv {
-      width: 60% !important;
+      width: 61.7% !important;
   }
 }
 @media only screen and (max-width: 1600px) {
   .SearchDiv {
-      width: 50% !important;
+      width: 51.7% !important;
   }
 }
 @media only screen and (max-width: 1275px) {
   .SearchDiv {
-      width: 40% !important;
+      width: 41.7% !important;
   }
 }
 @media only screen and (max-width: 1024px) {
   .SearchDiv {
-      width: 60% !important;
+      width: 61.7% !important;
   }
 }
 
 @media only screen and (max-width: 475px) {
   .SearchDiv {
-      width: 70% !important;
+      width: 71.7% !important;
   }
 }

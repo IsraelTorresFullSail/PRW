@@ -17,11 +17,11 @@ import {
   Link
 } from 'react-router-dom'
 
-// function searchMe(search) {
-//   return function(searchPostText){
-//     return searchPostText.gTitle.toLowerCase().includes(search.toLowerCase()) || !search
-//   }
-// }
+function searchMe(search) {
+  return function(searchPostTitle){
+    return searchPostTitle.gTitle.toLowerCase().includes(search.toLowerCase()) || !search
+  }
+}
 
 class App extends Component {
   state = {
@@ -45,19 +45,8 @@ class App extends Component {
 
   // Functions for search bar
   searchPost = e => {
-    this.setState({search: e.target.value}, () => {
-      this.filterArray();
-    })
-  }
-
-  filterArray = () => {
-    let searchString = this.state.search;
-    let responseData = this.state.gList;
-
-    if(searchString.length > 0) {
-      responseData = responseData.filter(searchString)
-      this.setState({gList: responseData})
-    }
+    console.log(e)
+    this.setState({search: e})
   }
 
   // Functions for data binding
@@ -110,7 +99,7 @@ class App extends Component {
 
   render() {
 
-    let myList = this.state.gList.map(item => {
+    let myList = this.state.gList.filter(searchMe(this.state.search)).map(item => {
       return <ListItem key={item.gId} val={item} deleteMe={() => this.removePost(item.gId)} />
     })
     return (
@@ -131,7 +120,9 @@ class App extends Component {
 
             createPost={this.createPost}
           />
-          {myList}
+          <div style={styles.listWrapper}>
+            {myList}
+          </div>
           <Footer />
         </div>
       </Router>
@@ -143,16 +134,25 @@ export default App
 
 const styles = {
   container: {
-    width: '65%',
-    margin: '100px auto 0px auto',
+    position: 'fixed',
+    top: '90px',
+    left: '0',
+    right: '0',
+    zIndex: '9999',
+    width: '66.7%',
+    margin: '0px auto 0px auto',
     padding: '20px',
     backgroundColor: '#404FAB',
     color: '#040B71',
     borderRadius: '5px',
+    boxShadow: '0px 10px 30px 0px rgba(4,11,113,0.3)',
     transition: 'all ease .3s'
   },
   ul: {
     listStyleType: 'none',
     color: '#ffffff'
+  },
+  listWrapper: {
+    marginBottom: '65px'
   }
 }
