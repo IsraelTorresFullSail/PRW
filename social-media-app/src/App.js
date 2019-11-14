@@ -6,28 +6,32 @@ import Ads from './components/adsSection/Ads'
 import PostForm from './components/postForm/postForm'
 import Footer from './components/footer/Footer'
 import ListItem from './components/listItem/listItem'
-import SearchList from './components/search/SearchList'
+//import SearchList from './components/search/SearchList'
 import SearchInput from './components/search/SearchInput'
 
-function searchMe(search) {
-  return function(searchPostTitle){
-    return searchPostTitle.gTitle.toLowerCase().includes(search.toLowerCase()) || !search
-  }
-}
+// React Router
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from 'react-router-dom'
+
+// function searchMe(search) {
+//   return function(searchPostText){
+//     return searchPostText.gTitle.toLowerCase().includes(search.toLowerCase()) || !search
+//   }
+// }
 
 class App extends Component {
   state = {
-    id: '',
     myInput: '',
     myInputPost: '',
     gList: [],
-    search: ''
+    search: '',
   }
 
-  searchPost = e => {
-    this.setState({search: e.target.value})
-  }
-
+  // Function to get all posts from Local Storage
   componentDidMount() {
     let gList
     if(gList = JSON.parse(localStorage.getItem('gList'))) {
@@ -39,6 +43,24 @@ class App extends Component {
     }
   }
 
+  // Functions for search bar
+  searchPost = e => {
+    this.setState({search: e.target.value}, () => {
+      this.filterArray();
+    })
+  }
+
+  filterArray = () => {
+    let searchString = this.state.search;
+    let responseData = this.state.gList;
+
+    if(searchString.length > 0) {
+      responseData = responseData.filter(searchString)
+      this.setState({gList: responseData})
+    }
+  }
+
+  // Functions for data binding
   changeMeMan = e => {
     this.setState({myInput: e.target.value})
   }
@@ -47,6 +69,7 @@ class App extends Component {
     this.setState({myInputPost: e.target.value})
   }
 
+  // Function to add a new post
   createPost = e => {
     e.preventDefault()
 
@@ -66,8 +89,6 @@ class App extends Component {
     this.setState({gList})
     localStorage.setItem('gList', JSON.stringify(gList))
 
-    e.target.datasetId = id
-
     // Clear Form and Data Binding fields
     e.target.reset()                                // eslint-disable-next-line
     this.state.myInput = ''                         // eslint-disable-next-line
@@ -75,50 +96,45 @@ class App extends Component {
 
   }
 
+  // Function to delete a post
   removePost = key => {
     let gList = [...this.state.gList]
-    this.state.gList.splice(key, 1)
-    this.setState({gList: this.state.gList})
-    localStorage.setItem('gList', JSON.stringify(gList))
+    for (let i = 0; i < gList.length; i++) {
+      if(gList[i].gId === key) {
+        this.state.gList.splice(i, 1)
+        this.setState({gList: this.state.gList})
+        localStorage.setItem('gList', JSON.stringify(this.state.gList))
+      }
+    }
   }
 
   render() {
 
-    let myList = this.state.gList.map((element, i) => {
-      return <ListItem key={i} data-id={this.state.id} val={element} deleteMe={() => this.removePost(i)} />
+    let myList = this.state.gList.map(item => {
+      return <ListItem key={item.gId} val={item} deleteMe={() => this.removePost(item.gId)} />
     })
-
-    const {search} = this.state
-    let mySearchList = this.state.gList.filter(searchMe(search)).map((key, post) =>{
-      return <SearchList
-              val={key}
-              key={post}
-              />
-    })
-
     return (
-      <div>
-        <Header pgTitle='Sellers network'/>
-        <div className='SearchDiv' style={styles.container}>
-          <SearchInput searchPost={this.searchPost} />
-          <ul style={styles.ul}>
-            {mySearchList}
-          </ul>
+      <Router>
+        <div>
+          <Header pgTitle='Sellers network'/>
+          <div className='SearchDiv' style={styles.container}>
+            <SearchInput searchPost={this.searchPost} />
+          </div>
+          <SideBar />
+          <Ads />
+          <PostForm 
+            changeMeMan={this.changeMeMan}
+            myInput={this.state.myInput}
+
+            changeMeManPost={this.changeMeManPost}
+            myInputPost={this.state.myInputPost}
+
+            createPost={this.createPost}
+          />
+          {myList}
+          <Footer />
         </div>
-        <SideBar />
-        <Ads />
-        <PostForm 
-          changeMeMan={this.changeMeMan}
-          myInput={this.state.myInput}
-
-          changeMeManPost={this.changeMeManPost}
-          myInputPost={this.state.myInputPost}
-
-          createPost={this.createPost}
-        />
-        {myList}
-        <Footer />
-      </div>
+      </Router>
     )
   }
 }

@@ -20,7 +20,7 @@ export const BtnAdd = props => {
 
 export const BtnDelete = props => {
     return (
-        <button className="BtnDelete" style={styles.myBtn} onClick={props.onClick}>
+        <button className="BtnDelete" style={styles.myBtn} onClick={props.onClick} data-id={props.id}>
             {props.btnText} {props.icon} 
         </button>
     )

@@ -1,5 +1,6 @@
 import React from 'react'
 import './SideBar.css'
+import { NavLink } from 'react-router-dom'
 
 import { FaHome } from 'react-icons/fa'
 import { IoIosPaper } from 'react-icons/io'
@@ -7,13 +8,13 @@ import { MdQuestionAnswer } from 'react-icons/md'
 import { MdVideoLibrary } from 'react-icons/md'
 
 const SideBar = () => {
-    return (                                                  // Urls used as a placeholder to avoid warnings
+    return (                                                  
         <div className='SideBar'>
-            <ul style={styles.ul}>                                                                                
-                <li><FaHome style={styles.icon}/><a href="http://localhost:3000/" style={styles.a}>Home</a></li>                    
-                <li><IoIosPaper style={styles.icon}/><a href="http://localhost:3000/" style={styles.a}>News Feed</a></li>
-                <li><MdQuestionAnswer style={styles.icon}/><a href="http://localhost:3000/" style={styles.a}>Messages</a></li>
-                <li><MdVideoLibrary style={styles.icon}/><a href="http://localhost:3000/" style={styles.a}>Watch</a></li>
+            <ul style={styles.ul}>                  
+                <li><NavLink to="/" style={styles.link}><FaHome style={styles.icon}/>Home</NavLink></li>
+                <li><NavLink to="/"  style={styles.link}><IoIosPaper style={styles.icon}/>News Feed</NavLink></li>
+                <li><NavLink to="/"  style={styles.link}><MdQuestionAnswer style={styles.icon}/>Messages</NavLink></li>
+                <li><NavLink to="/"  style={styles.link}><MdVideoLibrary style={styles.icon}/>Watch</NavLink></li>
             </ul>
         </div>
     )
@@ -25,7 +26,7 @@ const styles = {
     ul: {
         listStyleType: 'none'
     },
-    a: {
+    link: {
         color: '#040B71',
         fontSize: '1.25em',
         lineHeight: '2.5em',

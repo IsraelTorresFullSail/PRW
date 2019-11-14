@@ -4,7 +4,7 @@ import { TiDelete } from 'react-icons/ti'
 
 const ListItem = props => {
     return (
-        <div key={props.id} data-id={props.id} style={styles.list}>
+        <div key={props.id} style={styles.list}>
             <h1 style={styles.h1}>{props.val.gTitle}</h1>
             <p>{props.val.gPost}</p>
             <BtnDelete btnText="Delete" icon={<TiDelete style={styles.tiDelete} />} onClick={props.deleteMe}></BtnDelete>
