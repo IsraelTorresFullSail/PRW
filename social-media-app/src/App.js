@@ -29,7 +29,9 @@ class App extends Component {
   state = {
     myInput: '',
     myInputPost: '',
+
     gList: [],
+
     search: '',
   }
 
@@ -136,6 +138,7 @@ class App extends Component {
                 <Watch />
               </Route>
             </Switch>
+
           <Footer />
         </div>
       </Router>

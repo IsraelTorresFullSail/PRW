@@ -4,6 +4,7 @@ import './ResponsiveModal.css'
 import MyForm from '../myForm/MyForm'
 import MyBtn from '../buttons/MyBtn'
 import { FaUserCog } from 'react-icons/fa'
+import RandomUser, {RandomUserProfile} from '../randomUser/RandomUser'
  
 class ResponsiveModal extends React.Component {
   state = {
@@ -25,6 +26,7 @@ class ResponsiveModal extends React.Component {
         <MyBtn btnText="Profile" icon={<FaUserCog style={styles.faUserCog} />} onClick={this.onOpenModal} />
         <Modal open={open} onClose={this.onCloseModal} center>
             <h1 style={styles.h1}>Social Profile</h1>
+            <RandomUserProfile />
             <MyForm />
         </Modal>
       </div>
