@@ -1,50 +1,96 @@
 import React, {Component} from 'react';
 import './RandomUser.css';
+import Modal from 'react-responsive-modal'
+import MyBtn, {BtnUpdate} from '../buttons/MyBtn'
+import { FaUserCog } from 'react-icons/fa'
+import { IoIosAddCircle } from 'react-icons/io'
+import { MdPlace } from 'react-icons/md'
+import { MdPhone } from 'react-icons/md'
 
-class RandomUser extends Component {
-    constructor(){
-        super();
-        this.state = {
-            pictures: [],
-            users: []
-        }
+class RandomUser extends Component { 
+    state = {
+        open: false,
+        users: []
     }
 
-    // Fetch Random User API
+    onOpenModal = () => {
+        this.setState({ open: true });
+    }
+    
+    onCloseModal = () => {
+        this.setState({ open: false });
+    }
+
+// Fetch Random User API
 async componentDidMount(){
     await fetch('https://randomuser.me/api/?results=1')
           .then(async results => {
             return await results.json()
           })
           .then(data => {
-            let pictures = data.results.map((pic) => {
-              return (
-                <div key = {pic.results}>
-                  <img src = {pic.picture.thumbnail} />
-                </div>
-              )
-            })
-            this.setState({pictures: pictures})
-            console.log("state", this.state.pictures)
-
-            let users = data.results.map((user) => {
-                let userProfile = []
-                userProfile.push({firstName: user.name.first, lastName: user.name.last, 
-                                  street: user.location.street, city: user.location.city,
-                                  state: user.location.state, postcode: user.location.postcode,
-                                  username: user.login.username, password: user.login.password,
-                                  phone: user.phone, picture: user.picture.medium})
-                return userProfile
+            let users = []
+            data.results.map((user) => {
+                users.push({firstName: user.name.first, lastName: user.name.last, 
+                            street: user.location.street, city: user.location.city,
+                            state: user.location.state, postcode: user.location.postcode,
+                            username: user.login.username, password: user.login.password,
+                            phone: user.phone, smallPicture: user.picture.thumbnail, picture: user.picture.large})
+                return users
             })
             this.setState({users: users})
-            console.log("state", this.state.users)
           })
     }
       
     render(){
+        const { open } = this.state;
+
+        let picture = ''
+        let firstName = ''
+        let lastName = ''
+        let pictureLarge = ''
+        let street = ''
+        let city = ''
+        let state = []
+        let postcode = ''
+        let username = ''
+        let password = ''
+        let phone = ''
+        for(let i = 0; i < this.state.users.length; i++) {
+            picture = this.state.users[0].smallPicture
+            firstName = this.state.users[0].firstName
+            lastName = this.state.users[0].lastName
+            pictureLarge = this.state.users[0].picture
+            street = this.state.users[0].street
+            city = this.state.users[0].city
+            state = this.state.users[0].state
+            postcode = this.state.users[0].postcode
+            username = this.state.users[0].username
+            password = this.state.users[0].password
+            phone = this.state.users[0].phone
+        }
     return(
-        <div style={styles.profile}>
-            {this.state.pictures}
+        <div style={styles.container}>
+            <div>
+                <MyBtn btnText="Profile" icon={<FaUserCog style={styles.faUserCog} />} onClick={this.onOpenModal} />
+                <Modal open={open} onClose={this.onCloseModal} center>
+                    <div style={styles.imgWrapper}>
+                        <img src={pictureLarge} alt='User Profile Image' />
+                    </div>
+                    <div style={styles.modal}>
+                        <h1 style={styles.h1}>{firstName} {lastName}</h1>
+                        <p style={styles.p}><MdPlace style={styles.mdPlace}/> {street.number}{street.key}, {city}, {state} {postcode}</p>
+                        <p style={styles.p}><MdPhone style={styles.mdPhone}/> {phone}</p>
+                        <p>Username: {username}</p>
+                        <p>Password: {password}</p>
+                        <div style={styles.btnDiv}>
+                            <BtnUpdate btnText="Update Profile" icon={<IoIosAddCircle style={styles.ioIosAddCircle} />}></BtnUpdate>
+                        </div>
+                    </div>
+                </Modal>
+            </div>
+            <div style={styles.profile}>
+                <img src ={picture} />
+            </div>
         </div>
         )
     }
@@ -52,22 +98,13 @@ async componentDidMount(){
     
 export default RandomUser
 
-export class RandomUserProfile extends RandomUser {
-    render() {
-        let userProfile = this.state.users.map((user) => {
-            return user.firstName
-        })
-        console.log(userProfile)
-        return (
-            <div>
-                <p>{this.state.users.firstName}</p>
-                <p>{this.state.users.lastName}</p>
-            </div>
-        )
-    }
-}
-
 const styles = {
+    container: {
+        display: 'flex',
+        justifyContent: 'flex-end',
+        flexDirection: 'row',
+        alignItems: 'center'
+    },
     profile: {
         width: '48px',
         height: '48px',
@@ -75,5 +112,78 @@ const styles = {
         marginRight: '30px',
         borderRadius: '50px',
         overflow: 'hidden'
+    },
+    h1: {
+        color: '#040B71',
+        fontSize: '1.25em',
+        fontWeight: '800',
+        textAlign: 'center',
+        marginTop: '10px',
+    },
+    faUserCog: {
+        position: 'absolute',
+        top: '10px',
+        right: '15px',
+        width: '1.2em',
+        height: '1.2em'
+    },
+    mdPlace: {
+        width: '1.5em',
+        height: '1.5em',
+        marginRight: '5px'
+    },
+    mdPhone: {
+        width: '1.5em',
+        height: '1.5em',
+        marginRight: '5px'
+    },
+    modal: {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'center',
+        textAlign: 'center',
+        flexWrap: 'wrap',
+        margin: '20px auto',
+        padding: '20px',
+        backgroundColor: '#ffffff',
+        color: '#040B71',
+        borderRadius: '5px',
+        border: '1px solid rgba(4,11,113,0.3)'
+    },
+    imgWrapper: {
+        margin: '-85px auto 0 auto',
+        width: '128px',
+        height: '128px',
+        borderRadius: '50%',
+        boxShadow: '0px 5px 25px 0px rgba(4,11,113,0.3)',
+        overflow: 'hidden'
+    },
+    item: {
+        color: '#040B71',
+        width: '43%',
+        fontSize: '1em',
+        textDecoration: 'none',
+        fontWeight: '400',
+        marginBottom: '20px',
+        padding: '20px',
+        border: 'none'
+    },
+    btnDiv: {
+        display: 'flex',
+        justifyContent: 'center',
+        width: '100%'
+    },
+    ioIosAddCircle: {
+        position: 'absolute',
+        top: '10px',
+        right: '15px',
+        width: '1.2em',
+        height: '1.2em'
+    },
+    p: {
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
     }
 }
