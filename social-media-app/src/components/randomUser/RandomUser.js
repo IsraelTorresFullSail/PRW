@@ -3,7 +3,7 @@ import './RandomUser.css';
 import Modal from 'react-responsive-modal'
 import MyBtn, {BtnUpdate} from '../buttons/MyBtn'
 import { FaUserCog } from 'react-icons/fa'
-import { IoIosAddCircle } from 'react-icons/io'
+import { IoIosCheckmarkCircle } from 'react-icons/io'
 import { MdPlace } from 'react-icons/md'
 import { MdPhone } from 'react-icons/md'
 
@@ -34,10 +34,11 @@ async componentDidMount(){
                             street: user.location.street, city: user.location.city,
                             state: user.location.state, postcode: user.location.postcode,
                             username: user.login.username, password: user.login.password,
-                            phone: user.phone, smallPicture: user.picture.thumbnail, picture: user.picture.large})
+                            phone: user.phone, smallPicture: user.picture.thumbnail, picture: user.picture.large, mediumPicture: user.picture.medium})
                 return users
             })
             this.setState({users: users})
+            localStorage.setItem('users', JSON.stringify(this.state.users))
           })
     }
       
@@ -48,6 +49,7 @@ async componentDidMount(){
         let firstName = ''
         let lastName = ''
         let pictureLarge = ''
+        let mediumPicture = ''
         let street = ''
         let city = ''
         let state = []
@@ -60,6 +62,7 @@ async componentDidMount(){
             firstName = this.state.users[0].firstName
             lastName = this.state.users[0].lastName
             pictureLarge = this.state.users[0].picture
+            mediumPicture = this.state.users[0].mediumPicture
             street = this.state.users[0].street
             city = this.state.users[0].city
             state = this.state.users[0].state
@@ -74,7 +77,7 @@ async componentDidMount(){
                 <MyBtn btnText="Profile" icon={<FaUserCog style={styles.faUserCog} />} onClick={this.onOpenModal} />
                 <Modal open={open} onClose={this.onCloseModal} center>
                     <div style={styles.imgWrapper}>
-                        <img src={pictureLarge} alt='User Profile Image' />
+                        <img id='userImage' src={pictureLarge} alt='User Profile Image' data-img={mediumPicture} data-first={firstName} data-last={lastName}/>
                     </div>
                     <div style={styles.modal}>
                         <h1 style={styles.h1}>{firstName} {lastName}</h1>
@@ -84,7 +87,7 @@ async componentDidMount(){
                         <p><span style={styles.span}>password: </span>{password}</p>
                     </div>
                     <div style={styles.btnDiv}>
-                        <BtnUpdate btnText="Update Profile" icon={<IoIosAddCircle style={styles.ioIosAddCircle} />}></BtnUpdate>
+                        <BtnUpdate btnText="Update Profile" icon={<IoIosCheckmarkCircle style={styles.ioIosCheckmarkCircle} />}></BtnUpdate>
                     </div>
                 </Modal>
             </div>
@@ -173,7 +176,7 @@ const styles = {
         justifyContent: 'center',
         width: '100%'
     },
-    ioIosAddCircle: {
+    ioIosCheckmarkCircle: {
         position: 'absolute',
         top: '10px',
         right: '15px',

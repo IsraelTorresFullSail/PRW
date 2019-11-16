@@ -1,0 +1,28 @@
+@media only screen and (max-width: 1800px) {
+    .ListMessage {
+        width: 60% !important;
+    }
+}
+@media only screen and (max-width: 1600px) {
+    .ListMessage {
+        width: 50% !important;
+    }
+}
+@media only screen and (max-width: 1275px) {
+    .ListMessage {
+        width: 40% !important;
+    }
+}
+@media only screen and (max-width: 1024px) {
+    .ListMessage {
+        width: 60% !important;
+        margin: 20px auto 0px auto !important;
+    }
+}
+
+@media only screen and (max-width: 475px) {
+    .ListMessage {
+        width: 70% !important;
+        margin: 20px 12px 0px auto !important;
+    }
+}
