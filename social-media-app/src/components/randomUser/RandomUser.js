@@ -80,11 +80,11 @@ async componentDidMount(){
                         <h1 style={styles.h1}>{firstName} {lastName}</h1>
                         <p style={styles.p}><MdPlace style={styles.mdPlace}/> {street.number}{street.key}, {city}, {state} {postcode}</p>
                         <p style={styles.p}><MdPhone style={styles.mdPhone}/> {phone}</p>
-                        <p>Username: {username}</p>
-                        <p>Password: {password}</p>
-                        <div style={styles.btnDiv}>
-                            <BtnUpdate btnText="Update Profile" icon={<IoIosAddCircle style={styles.ioIosAddCircle} />}></BtnUpdate>
-                        </div>
+                        <p><span style={styles.span}>username: </span>{username}</p>
+                        <p><span style={styles.span}>password: </span>{password}</p>
+                    </div>
+                    <div style={styles.btnDiv}>
+                        <BtnUpdate btnText="Update Profile" icon={<IoIosAddCircle style={styles.ioIosAddCircle} />}></BtnUpdate>
                     </div>
                 </Modal>
             </div>
@@ -185,5 +185,9 @@ const styles = {
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
+    },
+    span: {
+        fontSize: '1.2em',
+        fontWeight: '500',
     }
 }

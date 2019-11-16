@@ -11,7 +11,3 @@ const Nav = () => {
 }
 
 export default Nav
-
-const styles = {
-    
-}
