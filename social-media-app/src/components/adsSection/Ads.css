@@ -9,16 +9,40 @@
     box-shadow: -1px 0px 20px 0px rgba(4,11,113,0.16);
     transition: all ease .3s;
 }
+.AdsCardThree, .AdsCard, .AdsCardTwo {
+    transition: all ease .3s;
+}
 
 @media only screen and (max-width: 1024px) {
     .Ads {
-        width: 50px;
-        padding: 100px 10px 10px 10px;
+        width: 60px;
+        padding: 100px 5px 10px 5px;
+    }
+    .AdsCardThree {
+        display: none !important;
+    }
+    .AdsCard .DivSellers, .AdsCard h1{
+        display: none;
+    }
+    .AdsCardTwo .DivSellers, .AdsCardTwo h1 {
+        display: none;
+    }
+    .AdsCard, .AdsCardTwo {
+        min-width: 320px;
+        min-height: 23px !important;
+        align-items: flex-end;
+        padding: 0px 15px !important;
+        transform-origin: 40px 20px;
+        transform: rotate(90deg);
+    }
+    .AdsCardTwo {
+     margin-top: 300px !important;
     }
 }
 
 @media only screen and (max-width: 475px) {
     .Ads {
+        display: none;
         width: 0px;
         padding: 0px;
     }

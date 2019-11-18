@@ -2,6 +2,10 @@ import React, { Component } from 'react'
 import MessageForm from '../components/messageForm/MessageForm'
 import ListMessage from '../components/listMessage/ListMessage'
 
+import Noty from 'noty' 
+import '../../node_modules/noty/lib/noty.css'
+import '../../node_modules/noty/lib/themes/mint.css'
+
 class Messages extends Component {
     state = {
         myInput: '',
@@ -30,8 +34,18 @@ class Messages extends Component {
 
         // Validate Form
         if(this.state.myInput === '') {
-            alert('Please provide a Message!')
-            return false
+            new Noty({
+                type: 'warning',
+                layout: 'topRight',
+                text: `Please provide a Message!`,
+                buttons: [
+                  Noty.button('OK', 'btn btn-error', function () {
+                      Noty.closeAll();
+                      return false;
+                  })
+                ]
+              }).show();
+              return false;
         }
 
         let mList = [...this.state.mList]

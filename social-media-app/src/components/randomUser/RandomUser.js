@@ -91,9 +91,7 @@ async componentDidMount(){
                     </div>
                 </Modal>
             </div>
-            <div style={styles.profile}>
-                <img src ={picture} />
-            </div>
+            <img src ={picture} style={styles.profile} />
         </div>
         )
     }
@@ -113,8 +111,7 @@ const styles = {
         height: '48px',
         marginLeft: '20px',
         marginRight: '30px',
-        borderRadius: '50px',
-        overflow: 'hidden'
+        borderRadius: '50px'
     },
     h1: {
         color: '#040B71',

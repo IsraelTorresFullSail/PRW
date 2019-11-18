@@ -26,5 +26,9 @@
 @media only screen and (max-width: 475px) {
   .SearchDiv {
       width: 71.7% !important;
+      position: fixed;
+      top: 90px;
+      left: auto !important;
+      right: 5px !important;
   }
 }

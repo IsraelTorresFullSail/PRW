@@ -6,14 +6,14 @@ import { TiDelete } from 'react-icons/ti'
 const ListMessage = props => {
     return (
         <div className="ListMessage" key={props.id} style={styles.list}>
-            <div style={styles.imgWrapper}>
+            <div className="ImgWrapper" style={styles.imgWrapper}>
                 <img src={props.val.mImage} alt='User image' style={styles.img}/>
             </div>
-            <div style={styles.textWrapper}>
+            <div className="TextWrapper" style={styles.textWrapper}>
                 <h1 style={styles.h1}>{props.val.userFirst} {props.val.userLast}</h1>
                 <p>{props.val.message}</p>
             </div>
-            <div style={styles.dateWrapper}>
+            <div className="DateWrapper" style={styles.dateWrapper}>
                 <p style={styles.p}>{props.val.datetime}</p>
                 <BtnDelete btnText="Delete" icon={<TiDelete style={styles.tiDelete} />} onClick={props.deleteMe}></BtnDelete>
             </div>
@@ -28,6 +28,7 @@ const styles = {
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
+        flexWrap: 'wrap',
         width: '65%',
         margin: '20px auto',
         padding: '0px 20px 10px 20px',

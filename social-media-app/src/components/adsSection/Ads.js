@@ -5,20 +5,20 @@ import bestSeller from '../../images/best-seller.png'
 const SideBar = () => {
     return (
         <div className='Ads'>
-            <div style={styles.adsCardThree}>
+            <div className="AdsCardThree" style={styles.adsCardThree}>
                 <img src={bestSeller} alt="Best Seller" style={styles.img} />
             </div>
-            <div style={styles.adsCard}>
+            <div className="AdsCard" style={styles.adsCard}>
                 <h1 style={styles.h1Green}>Hello USA!</h1>
                 <p style={styles.pWhite}>New American site</p>
-                <div style={styles.divSellers}>
+                <div className="DivSellers" style={styles.divSellers}>
                     <h2 style={styles.h2}>Sellers Social Media</h2>
                 </div>
             </div>
-            <div style={styles.adsCardTwo}>
+            <div className="AdsCardTwo" style={styles.adsCardTwo}>
                 <h1 style={styles.h1Red}>Grow Your Businiess</h1>
                 <p style={styles.pB}>Power Personal Web Experience</p>
-                <div style={styles.divSellers}>
+                <div className="DivSellers" style={styles.divSellers}>
                     <h2 style={styles.h2Pink}>Dynamic communication</h2>
                 </div>
             </div>

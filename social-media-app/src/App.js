@@ -8,6 +8,10 @@ import Footer from './components/footer/Footer'
 import ListItem from './components/listItem/listItem'
 import SearchInput from './components/search/SearchInput'
 
+import Noty from 'noty' 
+import '../node_modules/noty/lib/noty.css'
+import '../node_modules/noty/lib/themes/mint.css'
+
 import Watch from './pages/Watch'
 import Messages from './pages/Messages'
 
@@ -68,12 +72,32 @@ class App extends Component {
 
     // Validate Form
     if(this.state.myInput === '') {
-      alert('Please provide a Title!')
-      return false
+      new Noty({
+        type: 'warning',
+        layout: 'topRight',
+        text: `Please provide a Title!`,
+        buttons: [
+          Noty.button('OK', 'btn btn-error', function () {
+              Noty.closeAll();
+              return false;
+          })
+        ]
+      }).show();
+      return false;
     }
     if(this.state.myInputPost === '') {
-      alert('Please provide a Post!')
-      return false
+      new Noty({
+        type: 'warning',
+        layout: 'topRight',
+        text: `Please provide a Post!`,
+        buttons: [
+          Noty.button('OK', 'btn btn-error', function () {
+              Noty.closeAll();
+              return false;
+          })
+        ]
+      }).show();
+      return false;
     }
 
     let gList = [...this.state.gList]
@@ -132,7 +156,9 @@ class App extends Component {
                 </div>
               </Route>
               <Route path="/Messages">
-                <Messages />
+                <div style={styles.listWrapper}>
+                  <Messages />
+                </div>
               </Route>
               <Route path="/Watch">
                 <Watch />

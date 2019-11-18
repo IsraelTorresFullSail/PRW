@@ -7,16 +7,48 @@
     .ListMessage {
         width: 50% !important;
     }
+    .ImgWrapper {
+        width: 12% !important;
+    }
+    .TextWrapper {
+        width: 70% !important;
+    }
+    .DateWrapper {
+        width: 18% !important;
+    }
 }
 @media only screen and (max-width: 1275px) {
     .ListMessage {
         width: 40% !important;
+    }
+    .ImgWrapper {
+        width: 100% !important;
+        padding-top: 20px;
+    }
+    .TextWrapper {
+        width: 70% !important;
+    }
+    .DateWrapper {
+        width: 30% !important;
     }
 }
 @media only screen and (max-width: 1024px) {
     .ListMessage {
         width: 60% !important;
         margin: 20px auto 0px auto !important;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .ImgWrapper {
+        width: 100% !important;
+        padding-top: 20px;
+    }
+    .TextWrapper {
+        width: 100% !important;
+    }
+    .DateWrapper {
+        width: 100% !important;
     }
 }
 

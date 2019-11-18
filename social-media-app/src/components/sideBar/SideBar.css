@@ -22,7 +22,7 @@
     li {
         margin-bottom: 15px;
     }
-    a {
+    a span {
         display: none;
     }
     li svg {

@@ -13,9 +13,9 @@ const SideBar = () => {
     return (                                                  
         <div className='SideBar'>
             <ul style={styles.ul}>                  
-                <li><NavLink to="/"  style={styles.link}><FaHome style={styles.icon}/>News Feed</NavLink></li>
-                <li><NavLink to="/Messages"  style={styles.link}><MdQuestionAnswer style={styles.icon}/>Messages</NavLink></li>
-                <li><NavLink to="/Watch"  style={styles.link}><MdVideoLibrary style={styles.icon}/>Watch</NavLink></li>
+                <li><NavLink to="/"  style={styles.link}><FaHome style={styles.icon}/><span>News Feed</span></NavLink></li>
+                <li><NavLink to="/Messages"  style={styles.link}><MdQuestionAnswer style={styles.icon}/><span>Messages</span></NavLink></li>
+                <li><NavLink to="/Watch"  style={styles.link}><MdVideoLibrary style={styles.icon}/><span>Watch</span></NavLink></li>
             </ul>
         </div>
     )
