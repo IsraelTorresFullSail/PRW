@@ -77,7 +77,7 @@ async componentDidMount(){
                 <MyBtn btnText="Profile" icon={<FaUserCog style={styles.faUserCog} />} onClick={this.onOpenModal} />
                 <Modal open={open} onClose={this.onCloseModal} center>
                     <div style={styles.imgWrapper}>
-                        <img id='userImage' src={pictureLarge} alt='User Profile Image' data-img={mediumPicture} data-first={firstName} data-last={lastName}/>
+                        <img id='userImage' src={pictureLarge} alt='User Profile' data-img={mediumPicture} data-first={firstName} data-last={lastName}/>
                     </div>
                     <div style={styles.modal}>
                         <h1 style={styles.h1}>{firstName} {lastName}</h1>
@@ -91,7 +91,7 @@ async componentDidMount(){
                     </div>
                 </Modal>
             </div>
-            <img src ={picture} style={styles.profile} />
+            <img src ={picture} style={styles.profile} alt='User Profile'/>
         </div>
         )
     }
