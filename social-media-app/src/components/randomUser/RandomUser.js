@@ -29,6 +29,7 @@ async componentDidMount(){
           })
           .then(data => {
             let users = []
+            //do not use the push method. Also use template literials.
             data.results.map((user) => {
                 users.push({firstName: user.name.first, lastName: user.name.last, 
                             street: user.location.street, city: user.location.city,
