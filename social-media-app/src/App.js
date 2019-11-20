@@ -33,9 +33,7 @@ class App extends Component {
   state = {
     myInput: '',
     myInputPost: '',
-
     gList: [],
-
     search: '',
   }
 
