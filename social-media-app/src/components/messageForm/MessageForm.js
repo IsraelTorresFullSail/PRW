@@ -23,7 +23,7 @@ const styles = {
         justifyContent: 'space-between',
         flexWrap: 'wrap',
         width: '65%',
-        margin: '190px auto 0px auto',
+        margin: '100px auto 0px auto',
         padding: '20px',
         backgroundColor: '#ffffff',
         color: '#040B71',

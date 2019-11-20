@@ -7,7 +7,7 @@ const ListMessage = props => {
     return (
         <div className="ListMessage" key={props.id} style={styles.list}>
             <div className="ImgWrapper" style={styles.imgWrapper}>
-                <img src={props.val.mImage} alt='User image' style={styles.img}/>
+                <img src={props.val.mImage} alt='User Avatar' style={styles.img}/>
             </div>
             <div className="TextWrapper" style={styles.textWrapper}>
                 <h1 style={styles.h1}>{props.val.userFirst} {props.val.userLast}</h1>

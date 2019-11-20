@@ -2,33 +2,3 @@
   text-align: center;
 }
 
-@media only screen and (max-width: 1800px) {
-  .SearchDiv {
-      width: 61.7% !important;
-  }
-}
-@media only screen and (max-width: 1600px) {
-  .SearchDiv {
-      width: 51.7% !important;
-  }
-}
-@media only screen and (max-width: 1275px) {
-  .SearchDiv {
-      width: 41.7% !important;
-  }
-}
-@media only screen and (max-width: 1024px) {
-  .SearchDiv {
-      width: 61.7% !important;
-  }
-}
-
-@media only screen and (max-width: 475px) {
-  .SearchDiv {
-      width: 71.7% !important;
-      position: fixed;
-      top: 90px;
-      left: auto !important;
-      right: 5px !important;
-  }
-}

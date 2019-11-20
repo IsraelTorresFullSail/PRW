@@ -8,8 +8,8 @@ const PostForm = props => {
         <form name="postForm" style={styles.postForm} onSubmit={props.createPost}>
             <input style={styles.input} onChange={props.changeMeMan} type="text" name="title" id="title" placeholder="Title" />
             <textarea style={styles.input} onChange={props.changeMeManPost} type="text" name="post" id="post" placeholder="Create Post..." />
-            <p>New Title: {props.myInput}</p>
-            <p>New Post: {props.myInputPost}</p>
+            <p>New Title: {props.titleInput}</p>
+            <p>New Post: {props.postInput}</p>
             <div style={styles.btnDiv}>
                 <BtnAdd btnText="Create" icon={<IoIosAddCircle style={styles.ioIosAddCircle} />}></BtnAdd>
             </div>
@@ -26,7 +26,7 @@ const styles = {
         justifyContent: 'space-between',
         flexWrap: 'wrap',
         width: '65%',
-        margin: '190px auto 0px auto',
+        margin: '100px auto 0px auto',
         padding: '20px',
         backgroundColor: '#ffffff',
         color: '#040B71',

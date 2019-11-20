@@ -48,7 +48,7 @@ class Messages extends Component {
               return false;
         }
 
-        let mList = [...this.state.mList]
+        let mList = []
         // Generate Id
         let id = Math.random()
 
@@ -67,7 +67,7 @@ class Messages extends Component {
             mImg = userData[0].mediumPicture
         }
         
-        mList.push({mId:id, message:this.state.myInput, datetime: date, mImage: mImg, userFirst: uFirst, userLast: uLast})
+        mList = [...this.state.mList, {mId:id, message:this.state.myInput, datetime: date, mImage: mImg, userFirst: uFirst, userLast: uLast}]
         this.setState({mList})
         localStorage.setItem('mList', JSON.stringify(mList))
 
@@ -131,5 +131,8 @@ const styles = {
         fontSize: '1.25em',
         fontWeight: '800',
         textAlign: 'center'
+    },
+    listWrapper: {
+        marginBottom: '65px'
     }
 }

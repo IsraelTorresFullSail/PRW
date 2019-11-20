@@ -31,7 +31,9 @@ class Watch extends Component {
                 <div style={styles.WatchSeccion}>
                     <h1 style={styles.h1}>Watch Social Media Videos</h1>
                 </div>
-                {myList}
+                <div style={styles.listWrapper}>
+                    {myList}
+                </div>
             </section>
         )
     }
@@ -46,7 +48,7 @@ const styles = {
         justifyContent: 'space-between',
         flexWrap: 'wrap',
         width: '65%',
-        margin: '190px auto 0px auto',
+        margin: '100px auto 0px auto',
         padding: '0 20px',
         backgroundColor: '#ffffff',
         color: '#040B71',
@@ -59,5 +61,8 @@ const styles = {
         fontSize: '1.25em',
         fontWeight: '800',
         textAlign: 'center'
+    },
+    listWrapper: {
+        marginBottom: '65px'
     }
 }
