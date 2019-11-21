@@ -1,10 +1,10 @@
 .Ads {
     position: fixed;
-    top: 0;
+    top: 64px;
     right: 0;
     width: 250px;
     height: 100%;
-    padding: 80px 20px 20px 20px;
+    padding: 20px 20px 20px 20px;
     background-color: #ffffff;
     box-shadow: -1px 0px 20px 0px rgba(4,11,113,0.16);
     transition: all ease .3s;
@@ -16,7 +16,7 @@
 @media only screen and (max-width: 1024px) {
     .Ads {
         width: 60px;
-        padding: 100px 5px 10px 5px;
+        padding: 20px 5px 10px 5px;
     }
     .AdsCardThree {
         display: none !important;

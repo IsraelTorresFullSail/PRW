@@ -5,7 +5,6 @@ import ListItem from '../components/listItem/listItem'
 import Noty from 'noty' 
 import '../../node_modules/noty/lib/noty.css'
 import '../../node_modules/noty/lib/themes/mint.css'
-import Header from '../components/header/Header';
 
 // I WANT THIS CODE TO BE UPDATED FOR YOUR WEEK 4 SUBMIT.
 // Functions for search bar
@@ -126,7 +125,7 @@ class NewsFeed extends Component {
     })
     return (
         <div>
-          <Header pgTitle='Sellers network' searchPost={this.searchPost}/>
+          {/*<Header pgTitle='Sellers network' searchPost={this.searchPost}/>*/}
           <PostForm 
             changeMeMan={this.changeMeMan}
             titleInput={this.state.titleInput}
