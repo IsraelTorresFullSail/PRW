@@ -2,46 +2,31 @@ import React from 'react'                               // eslint-disable-next-l
 import MyBtn, {BtnDelete} from '../buttons/MyBtn'
 import './ListMessage.css'
 import { TiDelete } from 'react-icons/ti'
+import { makeStyles } from '@material-ui/core/styles'
+import Paper from '@material-ui/core/Paper'
+import Grid from '@material-ui/core/Grid'
 
-const ListMessage = props => {
-    return (
-        <div className="ListMessage" key={props.id} style={styles.list}>
-            <div className="ImgWrapper" style={styles.imgWrapper}>
-                <img src={props.val.mImage} alt='User Avatar' style={styles.img}/>
-            </div>
-            <div className="TextWrapper" style={styles.textWrapper}>
-                <h1 style={styles.h1}>{props.val.userFirst} {props.val.userLast}</h1>
-                <p>{props.val.message}</p>
-            </div>
-            <div className="DateWrapper" style={styles.dateWrapper}>
-                <p style={styles.p}>{props.val.datetime}</p>
-                <BtnDelete btnText="Delete" icon={<TiDelete style={styles.tiDelete} />} onClick={props.deleteMe}></BtnDelete>
-            </div>
-        </div>
-    )
-}
-export default ListMessage
-
-const styles = {
+const useStyles = makeStyles(theme => ({
+    root: {
+      flexGrow: 1,
+    },
     list: {
-        display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        flexWrap: 'wrap',
-        width: '65%',
-        margin: '20px auto',
-        padding: '0px 20px 10px 20px',
-        backgroundColor: '#ffffff',
-        color: '#040B71',
-        borderRadius: '5px',
-        boxShadow: '0px 1px 20px 0px rgba(4,11,113,0.16)',
-        transition: 'all ease .3s'
+        margin: ' 0 auto',
+    },
+    paper: {
+      padding: theme.spacing(2),
+      color: theme.palette.text.secondary,
+      display: 'flex',
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      flexWrap: 'wrap',
+      transition: 'all ease .3s'
     },
     h1: {
         color: '#040B71',
         fontSize: '1.25em',
-        fontWeight: '800'
+        fontWeight: '700'
     },
     tiDelete: {
         position: 'absolute',
@@ -57,6 +42,10 @@ const styles = {
         justifyContent: 'space-between',
         alignItems: 'center',
 
+    },
+    p: {
+        marginBottom: '50px',
+        marginRight: '5px'
     },
     imgWrapper: {
         width: '10%'
@@ -76,8 +65,30 @@ const styles = {
         textAlign: 'right',
         padding: '0px'
     },
-    p: {
-        marginBottom: '50px',
-        marginRight: '5px'
-    }
+}));
+
+const ListMessage = props => {
+    const classes = useStyles()
+    return (
+        <div className={classes.root} key={props.id}>
+            <Grid container spacing={3}>
+                <Grid item xs={8} className={classes.list}>
+                    <Paper className={classes.paper}>
+                        <div className={classes.imgWrapper}>
+                            <img src={props.val.mImage} alt='User Avatar' className={classes.img}/>
+                        </div>
+                        <div className={classes.textWrapper}>
+                            <h1 className={classes.h1}>{props.val.userFirst} {props.val.userLast}</h1>
+                            <p>{props.val.message}</p>
+                        </div>
+                        <div className={classes.dateWrapper}>
+                            <p className={classes.p}>{props.val.datetime}</p>
+                            <BtnDelete btnText="Delete" icon={<TiDelete className={classes.tiDelete} />} onClick={props.deleteMe}></BtnDelete>
+                        </div>
+                    </Paper>
+                </Grid>
+            </Grid>
+        </div>
+    )
 }
+export default ListMessage

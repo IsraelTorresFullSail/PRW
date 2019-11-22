@@ -86,7 +86,6 @@ const PostForm = props => {
                 </Grid>
             </Grid>
         </div>
-        
     )
 }
 

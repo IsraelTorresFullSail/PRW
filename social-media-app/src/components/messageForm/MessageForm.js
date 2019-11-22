@@ -2,51 +2,40 @@ import React from 'react'
 import './MessageForm.css'                                   // eslint-disable-next-line
 import MyBtn, {BtnAdd} from '../buttons/MyBtn'
 import { IoIosAddCircle } from 'react-icons/io'
+import { makeStyles } from '@material-ui/core/styles'
+import Paper from '@material-ui/core/Paper'
+import Grid from '@material-ui/core/Grid'
+import TextField from '@material-ui/core/TextField'
 
-const MessageForm = props => {
-    return (
-        <form name="messageForm" style={styles.messageForm} onSubmit={props.createMessage}>
-            <textarea style={styles.input} onChange={props.changeMeMan} type="text" name="message" id="message" placeholder="Create Message..." />
-            <div style={styles.btnDiv}>
-                <BtnAdd btnText="Create" icon={<IoIosAddCircle style={styles.ioIosAddCircle} />}></BtnAdd>
-            </div>
-        </form>
-    )
-}
-
-export default MessageForm
-
-const styles = {
-    messageForm: {
+const useStyles = makeStyles(theme => ({
+    root: {
+      flexGrow: 1,
+      marginTop: '30px'
+    },
+    list: {
         display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        flexWrap: 'wrap',
-        width: '65%',
-        margin: '20px auto 0px auto',
-        padding: '20px',
-        backgroundColor: '#ffffff',
+        flexDirection: 'column',
+        margin: ' 0 auto',
         color: '#040B71',
-        borderRadius: '5px',
-        boxShadow: '0px 1px 20px 0px rgba(4,11,113,0.16)',
         transition: 'all ease .3s'
     },
-    input: {
-        backgroundColor: 'rgba(4,11,113,0.1)',
-        color: '#040B71',
+    paper: {
+      padding: theme.spacing(2),
+      color: theme.palette.text.secondary,
+    },
+    messageForm: {
+        width: '98.5% !important'
+    },
+    textField: {
+        marginLeft: theme.spacing(1),
+        marginRight: theme.spacing(1),
         width: '100%',
-        fontSize: '1em',
-        textDecoration: 'none',
-        fontWeight: '400',
-        marginBottom: '20px',
-        padding: '20px',
-        border: 'none',
-        borderRadius: '5px'
     },
     btnDiv: {
         display: 'flex',
         justifyContent: 'center',
-        width: '100%'
+        width: '100%',
+        marginTop: '20px'
     },
     ioIosAddCircle: {
         position: 'absolute',
@@ -55,4 +44,38 @@ const styles = {
         width: '1.2em',
         height: '1.2em'
     }
+}));
+
+const MessageForm = props => {
+    const classes = useStyles()
+    return (
+        <div className={classes.root} key={props.id}>
+            <Grid container spacing={3}>
+                <Grid item xs={8} className={classes.list}>
+                    <Paper className={classes.paper}>
+                            <form name="messageForm" className={classes.messageForm} onSubmit={props.createMessage} noValidate>
+                                <TextField
+                                    required
+                                    id="outlined-required"
+                                    label="Required"
+                                    defaultValue="Create Message..."
+                                    className={classes.textField}
+                                    margin="normal"
+                                    variant="outlined"
+                                    multiline={true}
+                                    rows={2}
+                                    rowsMax={4}
+                                    onChange={props.changeMeMan}
+                                />
+                                <div className={classes.btnDiv}>
+                                    <BtnAdd btnText="Create" icon={<IoIosAddCircle className={classes.ioIosAddCircle} />}></BtnAdd>
+                                </div>
+                            </form>
+                    </Paper>
+                </Grid>
+            </Grid>
+        </div>
+    )
 }
+
+export default MessageForm
