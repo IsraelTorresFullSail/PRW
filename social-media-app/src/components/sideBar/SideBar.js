@@ -1,45 +1,75 @@
 import React from 'react'
-import './SideBar.css'
+import { makeStyles } from '@material-ui/core/styles'
+import List from '@material-ui/core/List'
+import ListItem from '@material-ui/core/ListItem'
+import ListItemIcon from '@material-ui/core/ListItemIcon'
+import DashboardIcon from '@material-ui/icons/Dashboard'
+import AddCommentIcon from '@material-ui/icons/AddComment'
+import PersonalVideoIcon from '@material-ui/icons/PersonalVideo'
 import { NavLink } from 'react-router-dom'
-                                                                                                    // eslint-disable-next-line
-import Watch from '../../pages/Watch'                                                               // eslint-disable-next-line
-import Messages from '../../pages/Messages'
 
-import { FaHome } from 'react-icons/fa'
-import { MdQuestionAnswer } from 'react-icons/md'
-import { MdVideoLibrary } from 'react-icons/md'
-
-const SideBar = () => {
-    return (                                                  
-        <div className='SideBar'>
-            <ul style={styles.ul}>                  
-                <li><NavLink to="/"  style={styles.link}><FaHome style={styles.icon}/><span>News Feed</span></NavLink></li>
-                <li><NavLink to="/Messages"  style={styles.link}><MdQuestionAnswer style={styles.icon}/><span>Messages</span></NavLink></li>
-                <li><NavLink to="/Watch"  style={styles.link}><MdVideoLibrary style={styles.icon}/><span>Watch</span></NavLink></li>
-            </ul>
-        </div>
-    )
-}
-
-export default SideBar
-
-const styles = {
-    ul: {
-        listStyleType: 'none'
+const useStyles = makeStyles(theme => ({
+  root: {
+    width: '100%',
+    maxWidth: '250px',
+    backgroundColor: theme.palette.background.paper,
+    position: 'fixed',
+    top: '64px',
+    left: 0,
+    height: '100%',
+    borderRight: '1px solid #eeeeee'
+  },
+  link: {
+    display: 'flex',
+    flex: 'row',
+    alignItems: 'center',
+    color: 'rgba(4,11,113,0.8)',
+    fontSize: '1.25em',
+    lineHeight: '2.5em',
+    textDecoration: 'none',
+    fontWeight: '700'
     },
-    link: {
-        color: '#040B71',
-        fontSize: '1.25em',
-        lineHeight: '2.5em',
-        textDecoration: 'none',
-        fontWeight: '700'
-    },
-    icon: {
-        color: 'rgba(4,11,113,0.3)',
-        fontSize: '1.25em',
-        lineHeight: '2.5em',
-        textDecoration: 'none',
-        fontWeight: '700',
-        marginRight: '20px'
+  icon: {
+    color: 'rgba(4,11,113,0.8)',
+    fontSize: '1.25em',
+    lineHeight: '2.5em',
+    textDecoration: 'none',
+    fontWeight: '700',
+    marginLeft: '10px'
     }
+}));
+
+export default function SideBar() {
+  const classes = useStyles();
+
+  return (
+    <div className={classes.root}>
+      <List component="nav" aria-label="main menu">
+        <ListItem button>
+            <NavLink to="/"  className={classes.link}>
+                <ListItemIcon className={classes.icon}>
+                    <DashboardIcon />
+                </ListItemIcon>
+                <span>News Feed</span>
+            </NavLink>
+        </ListItem>
+        <ListItem button>
+            <NavLink to="/Messages"  className={classes.link}>
+                <ListItemIcon className={classes.icon}>
+                    <AddCommentIcon />
+                </ListItemIcon>
+                <span>Messages</span>
+            </NavLink>
+        </ListItem>
+        <ListItem button>
+            <NavLink to="/Watch"  className={classes.link}>
+                <ListItemIcon className={classes.icon}>
+                    <PersonalVideoIcon />
+                </ListItemIcon>
+                <span>Watch</span>
+            </NavLink>
+        </ListItem>
+      </List>
+    </div>
+  );
 }

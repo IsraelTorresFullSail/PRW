@@ -2,49 +2,34 @@ import React from 'react'
 import './postForm.css'                                   // eslint-disable-next-line
 import MyBtn, {BtnAdd} from '../buttons/MyBtn'
 import { IoIosAddCircle } from 'react-icons/io'
+import { makeStyles } from '@material-ui/core/styles'
+import Paper from '@material-ui/core/Paper'
+import Grid from '@material-ui/core/Grid'
+import TextField from '@material-ui/core/TextField'
 
-const PostForm = props => {
-    return (
-        <form name="postForm" style={styles.postForm} onSubmit={props.createPost}>
-            <input style={styles.input} onChange={props.changeMeMan} type="text" name="title" id="title" placeholder="Title" />
-            <textarea style={styles.input} onChange={props.changeMeManPost} type="text" name="post" id="post" placeholder="Create Post..." />
-            <p>New Title: {props.titleInput}</p>
-            <p>New Post: {props.postInput}</p>
-            <div style={styles.btnDiv}>
-                <BtnAdd btnText="Create" icon={<IoIosAddCircle style={styles.ioIosAddCircle} />}></BtnAdd>
-            </div>
-        </form>
-    )
-}
-
-export default PostForm
-
-const styles = {
-    postForm: {
+const useStyles = makeStyles(theme => ({
+    root: {
+      flexGrow: 1,
+      marginTop: '30px'
+    },
+    list: {
         display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        flexWrap: 'wrap',
-        width: '65%',
-        margin: '20px auto 0px auto',
-        padding: '20px',
-        backgroundColor: '#ffffff',
+        flexDirection: 'column',
+        margin: ' 0 auto',
         color: '#040B71',
-        borderRadius: '5px',
-        boxShadow: '0px 1px 20px 0px rgba(4,11,113,0.16)',
         transition: 'all ease .3s'
     },
-    input: {
-        backgroundColor: 'rgba(4,11,113,0.1)',
-        color: '#040B71',
+    paper: {
+      padding: theme.spacing(2),
+      color: theme.palette.text.secondary,
+    },
+    postForm: {
+        width: '98.5% !important'
+    },
+    textField: {
+        marginLeft: theme.spacing(1),
+        marginRight: theme.spacing(1),
         width: '100%',
-        fontSize: '1em',
-        textDecoration: 'none',
-        fontWeight: '400',
-        marginBottom: '20px',
-        padding: '20px',
-        border: 'none',
-        borderRadius: '5px'
     },
     btnDiv: {
         display: 'flex',
@@ -58,4 +43,51 @@ const styles = {
         width: '1.2em',
         height: '1.2em'
     }
+}));
+
+const PostForm = props => {
+    const classes = useStyles()
+    return (
+        <div className={classes.root} key={props.id}>
+            <Grid container spacing={3}>
+                <Grid item xs={8} className={classes.list}>
+                    <Paper className={classes.paper}>
+                            <form name="postForm" className={classes.postForm} onSubmit={props.createPost} noValidate>
+                                <TextField
+                                    required
+                                    id="outlined-required"
+                                    label="Required"
+                                    defaultValue="Title..."
+                                    className={classes.textField}
+                                    margin="normal"
+                                    variant="outlined"
+                                    onChange={props.changeMeMan}
+                                />
+                                <TextField
+                                    required
+                                    id="outlined-required"
+                                    label="Required"
+                                    defaultValue="Create Post..."
+                                    className={classes.textField}
+                                    margin="normal"
+                                    variant="outlined"
+                                    multiline={true}
+                                    rows={2}
+                                    rowsMax={4}
+                                    onChange={props.changeMeManPost}
+                                />
+                                <p>New Title: {props.titleInput}</p>
+                                <p>New Post: {props.postInput}</p>
+                                <div className={classes.btnDiv}>
+                                    <BtnAdd btnText="Create" icon={<IoIosAddCircle className={classes.ioIosAddCircle} />}></BtnAdd>
+                                </div>
+                            </form>
+                    </Paper>
+                </Grid>
+            </Grid>
+        </div>
+        
+    )
 }
+
+export default PostForm

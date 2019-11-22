@@ -1,26 +1,41 @@
 .BtnAdd {
     width: 110px;
-    background-color: #31A64F !important;
+    background-color: #8bc34a !important;
     color: #ffffff !important;
     border: none !important;
     padding-right: 10px !important;
     padding-left: 15px !important;
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,0.14), 0 2px 1px -1px rgba(0,0,0,0.12), 0 1px 3px 0 rgba(0,0,0,0.20);
+    transition: all ease .3s;
+}
+.BtnAdd:hover {
+    background-color: #4caf50 !important;
 }
 
 .BtnUpdate {
     width: 200px;
-    background-color: #31A64F !important;
+    background-color: #8bc34a !important;
     color: #ffffff !important;
     border: none !important;
     padding-right: 10px !important;
     padding-left: 15px !important;
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,0.14), 0 2px 1px -1px rgba(0,0,0,0.12), 0 1px 3px 0 rgba(0,0,0,0.20);
+    transition: all ease .3s;
+}
+.BtnUpdate:hover {
+    background-color: #4caf50 !important;
 }
 
 .BtnDelete {
     width: 110px;
-    background-color: #F14B49 !important;
+    background-color: #f06292 !important;
     color: #ffffff !important;
     border: none !important;
     padding-right: 10px !important;
     padding-left: 15px !important;
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,0.14), 0 2px 1px -1px rgba(0,0,0,0.12), 0 1px 3px 0 rgba(0,0,0,0.20);
+    transition: all ease .3s;
+}
+.BtnDelete:hover {
+    background-color: #e91e63 !important;
 }

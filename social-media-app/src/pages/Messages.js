@@ -133,6 +133,6 @@ const styles = {
         textAlign: 'center'
     },
     listWrapper: {
-        marginBottom: '65px'
+        marginBottom: '5px'
     }
 }

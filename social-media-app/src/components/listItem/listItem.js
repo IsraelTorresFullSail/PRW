@@ -2,35 +2,29 @@ import React from 'react'                               // eslint-disable-next-l
 import MyBtn, {BtnDelete} from '../buttons/MyBtn'
 import './listItem.css'
 import { TiDelete } from 'react-icons/ti'
+import { makeStyles } from '@material-ui/core/styles'
+import Paper from '@material-ui/core/Paper'
+import Grid from '@material-ui/core/Grid'
 
-const ListItem = props => {
-    return (
-        <div className="ListItem" key={props.id} style={styles.list}>
-            <h1 style={styles.h1}>{props.val.gTitle}</h1>
-            <p>{props.val.gPost}</p>
-            <BtnDelete btnText="Delete" icon={<TiDelete style={styles.tiDelete} />} onClick={props.deleteMe}></BtnDelete>
-        </div>
-    )
-}
-export default ListItem
-
-const styles = {
+const useStyles = makeStyles(theme => ({
+    root: {
+      flexGrow: 1,
+    },
     list: {
         display: 'flex',
         flexDirection: 'column',
-        width: '65%',
-        margin: '20px auto',
-        padding: '20px',
-        backgroundColor: '#ffffff',
+        margin: ' 0 auto',
         color: '#040B71',
-        borderRadius: '5px',
-        boxShadow: '0px 1px 20px 0px rgba(4,11,113,0.16)',
         transition: 'all ease .3s'
+    },
+    paper: {
+      padding: theme.spacing(2),
+      color: theme.palette.text.secondary,
     },
     h1: {
         color: '#040B71',
         fontSize: '1.25em',
-        fontWeight: '800',
+        fontWeight: '700',
         marginBottom: '10px'
     },
     tiDelete: {
@@ -40,4 +34,22 @@ const styles = {
         width: '1.2em',
         height: '1.2em'
     }
+}));
+
+const ListItem = props => {
+    const classes = useStyles()
+    return (
+        <div className={classes.root} key={props.id}>
+            <Grid container spacing={3}>
+                <Grid item xs={8} className={classes.list}>
+                    <Paper className={classes.paper}>
+                        <h1 className={classes.h1}>{props.val.gTitle}</h1>
+                        <p>{props.val.gPost}</p>
+                        <BtnDelete btnText="Delete" icon={<TiDelete className={classes.tiDelete} />} onClick={props.deleteMe}></BtnDelete>
+                    </Paper>
+                </Grid>
+            </Grid>
+        </div>
+    )
 }
+export default ListItem

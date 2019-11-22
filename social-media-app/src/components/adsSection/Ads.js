@@ -16,7 +16,7 @@ const SideBar = () => {
                 </div>
             </div>
             <div className="AdsCardTwo" style={styles.adsCardTwo}>
-                <h1 style={styles.h1Red}>Grow Your Businiess</h1>
+                <h1 style={styles.h1White}>Grow Your Businiess</h1>
                 <p style={styles.pB}>Power Personal Web Experience</p>
                 <div className="DivSellers" style={styles.divSellers}>
                     <h2 style={styles.h2Pink}>Dynamic communication</h2>
@@ -37,10 +37,10 @@ const styles = {
         textAlign: 'center',
         minHeight: '200px',
         width: '100%',
-        maxWidth: '225px',
+        maxWidth: '200px',
         marginTop: '20px',
         padding: '15px',
-        backgroundColor: '#1e3bb3',
+        backgroundColor: '#3f51b5',
         borderRadius: '5px'
     },
     divSellers: {
@@ -48,7 +48,7 @@ const styles = {
         borderRadius: '5px'
     },
     h1Green: {
-        color: '#8ddf8a',
+        color: '#8bc34a',
         fontSize: '2.25em',
         fontWeight: '500',
         textAlign: 'center',
@@ -65,7 +65,7 @@ const styles = {
     h2Pink: {
         fontSize: '1.25em',
         textAlign: 'center',
-        color: '#fdd0c9',
+        color: '#e91e63',
         fontWeight: '900',
         textTransform: 'uppercase',
     },
@@ -87,10 +87,10 @@ const styles = {
         textAlign: 'center',
         minHeight: '200px',
         width: '100%',
-        maxWidth: '225px',
+        maxWidth: '200px',
         marginTop: '20px',
         padding: '15px',
-        backgroundColor: '#fdd0c9',
+        backgroundColor: '#f06292',
         borderRadius: '5px'
     },
     adsCardThree: {
@@ -101,14 +101,14 @@ const styles = {
         textAlign: 'center',
         minHeight: '150px',
         width: '100%',
-        maxWidth: '225px',
+        maxWidth: '200px',
         marginTop: '20px',
         padding: '15px',
         backgroundColor: '#ffffff',
         borderRadius: '5px'
     },
-    h1Red: {
-        color: '#F14B49',
+    h1White: {
+        color: '#ffffff',
         fontSize: '2.25em',
         fontWeight: '500',
         textAlign: 'center',

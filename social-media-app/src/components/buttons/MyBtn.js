@@ -40,18 +40,14 @@ const styles = {
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
-        paddingTop: '10px',
-        paddingBottom: '10px',
-        paddingRight: '45px',
-        paddingLeft: '15px',
-        backgroundColor: '#ffffff',
+        padding: '10px',
+        backgroundColor: 'transparent',
         color: '#040B71',
-        margin: '5px',
         fontSize: '1em',
         fontWeight: 'bold',
         cursor: 'pointer',
-        borderRadius: '50px',
-        border: '1px solid rgba(4,11,113,0.3)',
-        outline: 'none'
+        borderRadius: '4px',
+        border: 'none',
+        outline: 'none',
     }
 }

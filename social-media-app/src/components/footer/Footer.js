@@ -13,18 +13,11 @@ export default Footer
 
 const styles = {
     footer: {
-        position: 'fixed',
-        bottom: '0',
-        left: '0',
-        width: '100%',
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'center',
-        padding: '15px',
+        padding: '25px',
         fontSize: '0.8em',
-        color: '#040B71',
-        backgroundColor: '#ffffff',
-        boxShadow: '0px 1px 20px 0px rgba(4,11,113,0.16)',
-        zIndex: '9999'
+        color: '#040B71'
     }
 }

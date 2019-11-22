@@ -5,20 +5,21 @@ import SideBar from './components/sideBar/SideBar'
 import Ads from './components/adsSection/Ads'
 import Footer from './components/footer/Footer'
 import Routes from './components/Routes'
-// React Router
 import { BrowserRouter as Router } from 'react-router-dom'
 
 class App extends Component {
+  state = {
+    search: '',
+  }
 
   searchPost = e => {
-    console.log("hguhg")
-    //this.setState({search: e})
     this.setState({search: e.target.value})
+    console.log(e.target.value)
   }
   
+  
   render() {
-
-   
+    localStorage.setItem('search', JSON.stringify(this.state.search))
     return (
       <Router>
         <Header pgTitle='Sellers network' searchPost={this.searchPost}/>

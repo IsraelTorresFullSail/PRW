@@ -6,14 +6,6 @@ import Noty from 'noty'
 import '../../node_modules/noty/lib/noty.css'
 import '../../node_modules/noty/lib/themes/mint.css'
 
-// I WANT THIS CODE TO BE UPDATED FOR YOUR WEEK 4 SUBMIT.
-// Functions for search bar
-// function searchMe(search) {
-//   return function(searchPostTitle){
-//     return searchPostTitle.gTitle.toLowerCase().includes(search.toLowerCase()) || !search
-//   }
-// }
-
 function searchAList(search) {
   return function (searchMe){
       return searchMe.gPost.toLowerCase().includes(search.toLowerCase()) || !search
@@ -26,7 +18,6 @@ class NewsFeed extends Component {
     titleInput: '',
     postInput: '',
     postList: [],
-    search: '',
   }
 
   // Function to get all posts from Local Storage
@@ -39,15 +30,8 @@ class NewsFeed extends Component {
     else {
       alert('Nothing to store!')
     }
-  }
 
-  // Functions to get the text typing on search bar
-  searchPost = e => {
-    this.setState({search: e.target.value})
-  }
-
-  searchList = e => {
-    this.setState({search: e.target.value})
+    this.setState({search: JSON.parse(localStorage.getItem('search'))})
   }
 
   // Functions for data binding
@@ -119,13 +103,12 @@ class NewsFeed extends Component {
   }
 
   render() {
-    const {search} = this.state
+    const search = JSON.parse(localStorage.getItem('search'))
     let myList = this.state.postList.filter(searchAList(search)).map(item => {
       return <ListItem key={item.gId} val={item} deleteMe={() => this.removePost(item.gId)} />
     })
     return (
         <div>
-          {/*<Header pgTitle='Sellers network' searchPost={this.searchPost}/>*/}
           <PostForm 
             changeMeMan={this.changeMeMan}
             titleInput={this.state.titleInput}
@@ -164,6 +147,6 @@ const styles = {
     color: '#ffffff'
   },
   listWrapper: {
-    marginBottom: '65px'
+    marginBottom: '5px'
   }
 } 

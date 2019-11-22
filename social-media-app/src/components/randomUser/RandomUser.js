@@ -2,10 +2,10 @@ import React, {Component} from 'react';
 import './RandomUser.css';
 import Modal from 'react-responsive-modal'
 import MyBtn, {BtnUpdate} from '../buttons/MyBtn'
-import { FaUserCog } from 'react-icons/fa'
 import { IoIosCheckmarkCircle } from 'react-icons/io'
 import { MdPlace } from 'react-icons/md'
 import { MdPhone } from 'react-icons/md'
+import AccountCircle from '@material-ui/icons/AccountCircle';
 
 class RandomUser extends Component { 
     state = {
@@ -74,7 +74,7 @@ async componentDidMount(){
     return(
         <div style={styles.container}>
             <div>
-                <MyBtn btnText="Profile" icon={<FaUserCog style={styles.faUserCog} />} onClick={this.onOpenModal} />
+                <MyBtn btnText="" icon={<AccountCircle style={styles.iconUser} />} onClick={this.onOpenModal} />
                 <Modal open={open} onClose={this.onCloseModal} center>
                     <div style={styles.imgWrapper}>
                         <img id='userImage' src={pictureLarge} alt='User Profile' data-img={mediumPicture} data-first={firstName} data-last={lastName}/>
@@ -120,22 +120,23 @@ const styles = {
         textAlign: 'center',
         marginTop: '10px',
     },
-    faUserCog: {
-        position: 'absolute',
-        top: '10px',
-        right: '15px',
+    iconUser: {
         width: '1.2em',
-        height: '1.2em'
+        height: '1.2em',
+        color: '#ffffff',
+        backgroundColor: '#3f51b5'
     },
     mdPlace: {
         width: '1.5em',
         height: '1.5em',
-        marginRight: '5px'
+        marginRight: '5px',
+        color: 'rgba(4,11,113,0.8)',
     },
     mdPhone: {
         width: '1.5em',
         height: '1.5em',
-        marginRight: '5px'
+        marginRight: '5px',
+        color: 'rgba(4,11,113,0.8)',
     },
     modal: {
         display: 'flex',
