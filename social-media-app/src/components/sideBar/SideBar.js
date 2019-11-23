@@ -35,8 +35,11 @@ const useStyles = makeStyles(theme => ({
     lineHeight: '2.5em',
     textDecoration: 'none',
     fontWeight: '700',
-    marginLeft: '10px'
-    }
+    marginLeft: '10px',
+    [theme.breakpoints.down("lg")]: {
+      marginBottom: '20px'
+    },
+  }
 }));
 
 export default function SideBar() {
@@ -50,7 +53,7 @@ export default function SideBar() {
                 <ListItemIcon className={classes.icon}>
                     <DashboardIcon />
                 </ListItemIcon>
-                <span>News Feed</span>
+                <span className={classes.span}>News Feed</span>
             </NavLink>
         </ListItem>
         <ListItem button>
@@ -58,7 +61,7 @@ export default function SideBar() {
                 <ListItemIcon className={classes.icon}>
                     <AddCommentIcon />
                 </ListItemIcon>
-                <span>Messages</span>
+                <span className={classes.span}>Messages</span>
             </NavLink>
         </ListItem>
         <ListItem button>
@@ -66,7 +69,7 @@ export default function SideBar() {
                 <ListItemIcon className={classes.icon}>
                     <PersonalVideoIcon />
                 </ListItemIcon>
-                <span>Watch</span>
+                <span className={classes.span}>Watch</span>
             </NavLink>
         </ListItem>
       </List>

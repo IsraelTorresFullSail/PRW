@@ -28,9 +28,6 @@ class Watch extends Component {
         })
         return (
             <section>
-                <div style={styles.WatchSeccion}>
-                    <h1 style={styles.h1}>Watch Social Media Videos</h1>
-                </div>
                 <div style={styles.listWrapper}>
                     {myList}
                 </div>
@@ -42,27 +39,7 @@ class Watch extends Component {
 export default Watch
 
 const styles = {
-    WatchSeccion: {
-        display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        flexWrap: 'wrap',
-        width: '60%',
-        margin: '20px auto 0px auto',
-        padding: '0 20px',
-        backgroundColor: '#ffffff',
-        color: '#040B71',
-        borderRadius: '5px',
-        boxShadow: '0px 1px 20px 0px rgba(4,11,113,0.16)',
-        transition: 'all ease .3s'
-    },
-    h1: {
-        color: '#040B71',
-        fontSize: '1.25em',
-        fontWeight: '800',
-        textAlign: 'center'
-    },
     listWrapper: {
-        marginBottom: '5px'
+        margin: '30px 0 5px 0'
     }
 }

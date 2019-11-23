@@ -14,6 +14,9 @@ const useStyles = makeStyles(theme => ({
       flexGrow: 1,
       position: 'sticky',
       top: 0,
+      right: 0,
+      left: 0,
+      width: '100%',
       zIndex: 9999,
     },
     title: {
