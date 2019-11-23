@@ -5,6 +5,17 @@ import { TiDelete } from 'react-icons/ti'
 import { makeStyles } from '@material-ui/core/styles'
 import Paper from '@material-ui/core/Paper'
 import Grid from '@material-ui/core/Grid'
+import {
+    createMuiTheme,
+    MuiThemeProvider
+} from "@material-ui/core/styles"
+
+const theme = createMuiTheme({
+    breakpoints: {
+      values: { xs: 0, sm: 600, md: 960, lg: 1440, xl: 1920 }
+    },
+    
+})
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -15,7 +26,17 @@ const useStyles = makeStyles(theme => ({
         flexDirection: 'column',
         margin: ' 0 auto',
         color: '#040B71',
-        transition: 'all ease .3s'
+        transition: 'all ease .3s',
+        [theme.breakpoints.down("lg")]: {
+            marginLeft: '200px',
+        },
+        [theme.breakpoints.down("md")]: {
+            marginLeft: '100px',
+        },
+        [theme.breakpoints.down("sm")]: {
+            marginLeft: 'auto',
+            marginRight: 'auto'
+        },
     },
     paper: {
       padding: theme.spacing(2),
@@ -39,6 +60,7 @@ const useStyles = makeStyles(theme => ({
 const ListItem = props => {
     const classes = useStyles()
     return (
+        <MuiThemeProvider theme={theme}>
         <div className={classes.root} key={props.id}>
             <Grid container spacing={3}>
                 <Grid item xs={8} className={classes.list}>
@@ -50,6 +72,7 @@ const ListItem = props => {
                 </Grid>
             </Grid>
         </div>
+        </MuiThemeProvider>
     )
 }
 export default ListItem

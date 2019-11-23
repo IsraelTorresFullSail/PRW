@@ -40,6 +40,6 @@ export default Watch
 
 const styles = {
     listWrapper: {
-        margin: '30px 0 5px 0'
+        margin: '85px 0 5px 0'
     }
 }

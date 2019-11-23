@@ -6,6 +6,12 @@ import Noty from 'noty'
 import '../../node_modules/noty/lib/noty.css'
 import '../../node_modules/noty/lib/themes/mint.css'
 
+function searchAList(search) {
+    return function (searchMe){
+        return searchMe.message.toLowerCase().includes(search.toLowerCase()) || !search
+    }  
+}
+
 class Messages extends Component {
     state = {
         myInput: '',
@@ -90,11 +96,12 @@ class Messages extends Component {
 
 
     render() {
-        let myList = this.state.mList.map(item => {
+        const search = JSON.parse(localStorage.getItem('search'))
+        let myList = this.state.mList.filter(searchAList(search)).map(item => {
             return <ListMessage key={item.mId} val={item} deleteMe={() => this.removeMessage(item.mId)} />
         })
         return (
-            <div>
+            <div style={styles.MessagesSeccion}>
                 <MessageForm 
                   changeMeMan={this.changeMeMan}
                   myInput={this.state.myInput}
@@ -113,18 +120,7 @@ export default Messages
 
 const styles = {
     MessagesSeccion: {
-        display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        flexWrap: 'wrap',
-        width: '65%',
-        margin: '190px auto 0px auto',
-        padding: '20px',
-        backgroundColor: '#ffffff',
-        color: '#040B71',
-        borderRadius: '5px',
-        boxShadow: '0px 1px 20px 0px rgba(4,11,113,0.16)',
-        transition: 'all ease .3s'
+        marginTop: '90px',
     },
     h1: {
         color: '#040B71',

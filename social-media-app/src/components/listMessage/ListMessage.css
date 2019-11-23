@@ -1,4 +1,23 @@
-/* @media only screen and (max-width: 1800px) {
+.ImgWrapper {
+    width: 10%;
+}
+.TextWrapper {
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px 0px;
+}
+.DateWrapper {
+    width: 15%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+    padding: 0px;
+}
+
+@media only screen and (max-width: 1800px) {
     .ListMessage {
         width: 60% !important;
     }
@@ -57,4 +76,4 @@
         width: 70% !important;
         margin: 20px 12px 0px auto !important;
     }
-} */
+}

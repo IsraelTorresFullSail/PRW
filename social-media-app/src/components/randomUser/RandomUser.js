@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './RandomUser.css';
-import Modal from 'react-responsive-modal'
+import Modal from 'react-responsive-modal'                                  // eslint-disable-next-line
 import MyBtn, {BtnUpdate} from '../buttons/MyBtn'
 import { IoIosCheckmarkCircle } from 'react-icons/io'
 import { MdPlace } from 'react-icons/md'

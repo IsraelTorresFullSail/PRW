@@ -12,7 +12,7 @@ import logo from '../../images/logo.png'
 const useStyles = makeStyles(theme => ({
     grow: {
       flexGrow: 1,
-      position: 'sticky',
+      position: 'fixed',
       top: 0,
       right: 0,
       left: 0,
@@ -21,6 +21,7 @@ const useStyles = makeStyles(theme => ({
     },
     title: {
       display: 'none',
+      overflow: 'visible !important',
       [theme.breakpoints.up('sm')]: {
         display: 'block',
       },
@@ -36,8 +37,10 @@ const useStyles = makeStyles(theme => ({
       marginLeft: 0,
       width: '100%',
       [theme.breakpoints.up('sm')]: {
-        marginLeft: theme.spacing(3),
-        width: 'auto',
+        marginLeft: theme.spacing(7),
+        marginRight: theme.spacing(20),
+        width: '100%',
+        minWidth: '150px !important',
       },
     },
     searchIcon: {
@@ -75,7 +78,10 @@ const useStyles = makeStyles(theme => ({
     img: {
         width: '60px',
         marginRight: '10px',
-        marginLeft: '30px'
+        marginLeft: '30px',
+        [theme.breakpoints.down('md')]: {
+          marginLeft: '10px',
+        },
     }
   }));
   

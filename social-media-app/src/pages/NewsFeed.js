@@ -30,8 +30,6 @@ class NewsFeed extends Component {
     else {
       alert('Nothing to store!')
     }
-
-    this.setState({search: JSON.parse(localStorage.getItem('search'))})
   }
 
   // Functions for data binding
@@ -108,7 +106,7 @@ class NewsFeed extends Component {
       return <ListItem key={item.gId} val={item} deleteMe={() => this.removePost(item.gId)} />
     })
     return (
-        <div>
+        <div style={styles.postForm}>
           <PostForm 
             changeMeMan={this.changeMeMan}
             titleInput={this.state.titleInput}
@@ -127,24 +125,8 @@ class NewsFeed extends Component {
 export default NewsFeed
 
 const styles = {
-  container: {
-    position: 'fixed',
-    top: '90px',
-    left: '0',
-    right: '0',
-    zIndex: '9999',
-    width: '66.7%',
-    margin: '0px auto 0px auto',
-    padding: '20px',
-    backgroundColor: '#404FAB',
-    color: '#040B71',
-    borderRadius: '5px',
-    boxShadow: '0px 10px 30px 0px rgba(4,11,113,0.3)',
-    transition: 'all ease .3s'
-  },
-  ul: {
-    listStyleType: 'none',
-    color: '#ffffff'
+  postForm: {
+    marginTop: '85px'
   },
   listWrapper: {
     marginBottom: '5px'

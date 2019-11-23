@@ -14,12 +14,9 @@ import {
 
 const theme = createMuiTheme({
   breakpoints: {
-    values: ["xs", "sm", "md", "lg", "xl", "xxl"]
+    values: { xs: 0, sm: 600, md: 960, lg: 1440, xl: 1920 }
   },
-  values: {
-    xl: 1020,
-    xxl: 1500
-  }
+  
 })
 
 const useStyles = makeStyles(theme => ({
@@ -32,8 +29,20 @@ const useStyles = makeStyles(theme => ({
     left: 0,
     height: '100%',
     borderRight: '1px solid #eeeeee',
+    zIndex: 999,
+    [theme.breakpoints.down("lg")]: {
+      maxWidth: '190px'
+    },
     [theme.breakpoints.down("md")]: {
-      
+      maxWidth: '80px'
+    },
+    [theme.breakpoints.down("sm")]: {
+      maxWidth: '60px'
+    },
+  },
+  span:{
+    [theme.breakpoints.down("md")]: {
+      display: 'none'
     },
   },
   link: {
@@ -44,7 +53,10 @@ const useStyles = makeStyles(theme => ({
     fontSize: '1.25em',
     lineHeight: '2.5em',
     textDecoration: 'none',
-    fontWeight: '700'
+    fontWeight: '700',
+    [theme.breakpoints.down("lg")]: {
+      fontSize: '1.15em',
+    },
     },
   icon: {
     color: 'rgba(4,11,113,0.8)',
@@ -54,7 +66,15 @@ const useStyles = makeStyles(theme => ({
     fontWeight: '700',
     marginLeft: '10px',
     [theme.breakpoints.down("lg")]: {
+      marginLeft: '0px',
+      minWidth: '46px'
+    },
+    [theme.breakpoints.down("md")]: {
+      marginLeft: '10px',
       marginBottom: '20px'
+    },
+    [theme.breakpoints.down("sm")]: {
+      marginLeft: '0px',
     },
   }
 }));

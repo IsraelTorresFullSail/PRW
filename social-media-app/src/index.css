@@ -25,11 +25,12 @@ body {
 
 /* ------------- Noty Style --------------- */
 .noty_theme__mint.noty_type__warning {
-  background-color: #fdd0c9 !important;
-  border-bottom: 1px solid #F14B49 !important;
-  color: #F14B49 !important;
+  background-color: #fce4ec !important;
+  border: none !important;
+  color: #f06292 !important;
   border-radius: 10px !important;
   text-align: center;
+  box-shadow: 0 1px 1px 0 rgba(0,0,0,0.14), 0 2px 1px -1px rgba(0,0,0,0.12), 0 1px 3px 0 rgba(0,0,0,0.20);
 }
 
 .noty_theme__mint.noty_bar .noty_body {
@@ -37,11 +38,16 @@ body {
 }
 
 .btn-error {
-  border: 1px solid #F14B49;
-  border-radius: 10px;
-  color: #F14B49;
+  border: none !important;
+  border-radius: 4px;
+  background-color: #f06292 !important;
+  color: #ffffff;
   padding: 5px;
   width: 60px;
   font-weight: 600;
   outline: none !important;
+  box-shadow: 0 1px 1px 0 rgba(0,0,0,0.14), 0 2px 1px -1px rgba(0,0,0,0.12), 0 1px 3px 0 rgba(0,0,0,0.20);
+}
+.btn-error:hover {
+  background-color: #e91e63 !important;
 }
