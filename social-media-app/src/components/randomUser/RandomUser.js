@@ -5,7 +5,8 @@ import MyBtn, {BtnUpdate} from '../buttons/MyBtn'
 import { IoIosCheckmarkCircle } from 'react-icons/io'
 import { MdPlace } from 'react-icons/md'
 import { MdPhone } from 'react-icons/md'
-import AccountCircle from '@material-ui/icons/AccountCircle';
+import AccountCircle from '@material-ui/icons/AccountCircle'
+import Avatar from '@material-ui/core/Avatar'
 
 class RandomUser extends Component { 
     state = {
@@ -74,7 +75,8 @@ async componentDidMount(){
     return(
         <div style={styles.container}>
             <div>
-                <MyBtn btnText="" icon={<AccountCircle style={styles.iconUser} />} onClick={this.onOpenModal} />
+                
+                <Avatar style={styles.avatar} onClick={this.onOpenModal}><AccountCircle style={styles.iconUser} /></Avatar>
                 <Modal open={open} onClose={this.onCloseModal} center>
                     <div style={styles.imgWrapper}>
                         <img id='userImage' src={pictureLarge} alt='User Profile' data-img={mediumPicture} data-first={firstName} data-last={lastName}/>
@@ -190,5 +192,9 @@ const styles = {
     span: {
         fontSize: '1.2em',
         fontWeight: '500',
+    },
+    avatar: {
+        backgroundColor: 'transparent',
+        cursor: 'pointer'
     }
 }

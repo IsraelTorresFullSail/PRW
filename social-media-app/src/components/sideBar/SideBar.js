@@ -7,6 +7,20 @@ import DashboardIcon from '@material-ui/icons/Dashboard'
 import AddCommentIcon from '@material-ui/icons/AddComment'
 import PersonalVideoIcon from '@material-ui/icons/PersonalVideo'
 import { NavLink } from 'react-router-dom'
+import {
+  createMuiTheme,
+  MuiThemeProvider
+} from "@material-ui/core/styles"
+
+const theme = createMuiTheme({
+  breakpoints: {
+    values: ["xs", "sm", "md", "lg", "xl", "xxl"]
+  },
+  values: {
+    xl: 1020,
+    xxl: 1500
+  }
+})
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -17,7 +31,10 @@ const useStyles = makeStyles(theme => ({
     top: '64px',
     left: 0,
     height: '100%',
-    borderRight: '1px solid #eeeeee'
+    borderRight: '1px solid #eeeeee',
+    [theme.breakpoints.down("md")]: {
+      
+    },
   },
   link: {
     display: 'flex',
@@ -46,6 +63,7 @@ export default function SideBar() {
   const classes = useStyles();
 
   return (
+    <MuiThemeProvider theme={theme}>
     <div className={classes.root}>
       <List component="nav" aria-label="main menu">
         <ListItem button>
@@ -74,5 +92,6 @@ export default function SideBar() {
         </ListItem>
       </List>
     </div>
+    </MuiThemeProvider>
   );
 }
