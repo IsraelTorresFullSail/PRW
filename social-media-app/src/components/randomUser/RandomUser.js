@@ -93,7 +93,7 @@ async componentDidMount(){
                     </div>
                 </Modal>
             </div>
-            <img src ={picture} style={styles.profile} alt='User Profile'/>
+            <img src={picture} style={styles.profile} alt='User Profile'/>
         </div>
         )
     }

@@ -22,6 +22,7 @@ class App extends Component {
     localStorage.setItem('search', JSON.stringify(this.state.search))
     return (
       <Router>
+        {/* Your header can be dynamic */}
         <Header pgTitle='Sellers network' searchPost={this.searchPost}/>
         <SideBar />
         <Routes />
