@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/PRW/static/css/main.187e5216.chunk.css",
+    "main.js": "/PRW/static/js/main.04666185.chunk.js",
+    "main.js.map": "/PRW/static/js/main.04666185.chunk.js.map",
+    "runtime-main.js": "/PRW/static/js/runtime-main.4e06ecb9.js",
+    "runtime-main.js.map": "/PRW/static/js/runtime-main.4e06ecb9.js.map",
+    "static/css/2.e091d897.chunk.css": "/PRW/static/css/2.e091d897.chunk.css",
+    "static/js/2.e69e5467.chunk.js": "/PRW/static/js/2.e69e5467.chunk.js",
+    "static/js/2.e69e5467.chunk.js.map": "/PRW/static/js/2.e69e5467.chunk.js.map",
+    "index.html": "/PRW/index.html",
+    "precache-manifest.78a37ae74825be2f978876288bd3d3a7.js": "/PRW/precache-manifest.78a37ae74825be2f978876288bd3d3a7.js",
+    "service-worker.js": "/PRW/service-worker.js",
+    "static/css/2.e091d897.chunk.css.map": "/PRW/static/css/2.e091d897.chunk.css.map",
+    "static/css/main.187e5216.chunk.css.map": "/PRW/static/css/main.187e5216.chunk.css.map",
+    "static/media/best-seller.png": "/PRW/static/media/best-seller.aab912ae.png",
+    "static/media/logo.png": "/PRW/static/media/logo.13caffc6.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.4e06ecb9.js",
+    "static/css/2.e091d897.chunk.css",
+    "static/js/2.e69e5467.chunk.js",
+    "static/css/main.187e5216.chunk.css",
+    "static/js/main.04666185.chunk.js"
+  ]
+}
